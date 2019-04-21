@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>开源清单 · SnowThinker资源库</title>
+        <title>SpringBoot配置多个application.ptoperties文件.md · SnowThinker资源库</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,8 +59,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="centos7_k8s_singlenode.html" />
+    <link rel="next" href="fastdfs_install.html" />
     
+    
+    <link rel="prev" href="k8s_monitor.html" />
     
 
     </head>
@@ -104,7 +106,7 @@
         
     
         
-        <li class="toctree-l1 current" data-level="1.1" data-path="./">
+        <li class="toctree-l1 " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -114,9 +116,6 @@
                 </a>
             
 
-            
-                
-                
             
         </li>
     
@@ -149,7 +148,7 @@
         </li>
     
         
-        <li class="toctree-l1 " data-level="1.4" data-path="springboot_mutiple_application.html">
+        <li class="toctree-l1 current" data-level="1.4" data-path="springboot_mutiple_application.html">
             
                 <a href="springboot_mutiple_application.html">
             
@@ -159,6 +158,9 @@
                 </a>
             
 
+            
+                
+                
             
         </li>
     
@@ -189,7 +191,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
         <nav class="wy-nav-top" aria-label="top navigation">
             <i data-toggle="wy-nav-top" class="fa fa-bars shift-menu"></i>
-            <a href="#">开源清单</a>
+            <a href="#">SpringBoot配置多个application.ptoperties文件.md</a>
             
                 <!-- <i data-toggle="wy-nav-top" class="fa fa-bars"></i> -->
             
@@ -201,7 +203,7 @@
 
 <div role="navigation" aria-label="breadcrumbs navigation">
     <ul class="wy-breadcrumbs">
-        <li><a href="javascript:void(0)">开源清单</a></li>
+        <li><a href="javascript:void(0)">SpringBoot配置多个application.ptoperties文件.md</a></li>
         <li class="wy-breadcrumbs-aside">
             <a href="javascript:void(0)" class="language-picker"><i class="fa fa-globe"></i> <i class="fa fa-caret-down"></i></a>
             <ul class="language-dropdown">
@@ -229,8 +231,54 @@
                             <div itemprop="articleBody">
                                 <div class="section"> <!-- rtd needs a section to handle css properly -->
                                 
-                                <h1 id="docs">docs</h1>
+                                <h1 id=""> </h1>
+<p>Step 1. Create file src/main/resources/META-INF/spring.factories with the following:</p>
+<pre><code>org.springframework.boot.env.EnvironmentPostProcessor=\
+com.example.YourEnvironmentPostProcessor
+Step 2. As an example create a file src/main/resources/custom.properties with:
+</code></pre><p>server.port=8081
+Step 3. Now create you post processor class</p>
+<pre><code>package com.example;
 
+public class EnvironmentPostProcessorExample implements EnvironmentPostProcessor {
+
+  private final PropertiesPropertySourceLoader loader = new PropertiesPropertySourceLoader();
+
+  @Override
+  public void postProcessEnvironment(ConfigurableEnvironment environment,
+                                     SpringApplication application) {
+    Resource path = new ClassPathResource(&quot;custom.properties&quot;);
+
+    PropertySource&lt;?&gt; propertySource = loadProps(path);
+    environment.getPropertySources().addFirst(propertySource);
+
+    PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+
+    Resource[] configResources = resolver.getResources(&quot;classpath:prop/*.properties&quot;);
+
+    for(Resource resource : configResources) {
+      List&lt;PropertySource&lt;?&gt;&gt; psList = this.loadProps(resource);
+      psList.forEach(action -&gt; {
+          environment.getPropertySources().addLast(action);
+        });
+    }
+  }
+
+  private List&lt;PropertySource&lt;?&gt;&gt; loadProps(Resource path) {
+    if (!path.exists()) {
+      throw new IllegalArgumentException(&quot;Resource &quot; + path + &quot; does not exist&quot;);
+    }
+    try {
+      return this.loader.load(path.getFilename(), path, null);
+    }
+    catch (IOException ex) {
+      throw new IllegalStateException(
+          &quot;Failed to load props configuration from &quot; + path, ex);
+    }
+  }
+
+}
+</code></pre>
                                 
                                 </div>
                             </div>
@@ -256,8 +304,10 @@
                             <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
                                 
                                     
+                                        <a href="k8s_monitor.html" class="btn btn-neutral" title="" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
                                     
-                                        <a href="centos7_k8s_singlenode.html" class="btn btn-neutral float-right" title="" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+                                    
+                                        <a href="fastdfs_install.html" class="btn btn-neutral float-right" title="" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
                                     
                                 
                             </div>
@@ -273,7 +323,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"开源清单","level":"1.1","depth":1,"next":{"title":"CentOS7 安装 K8s","level":"1.2","depth":1,"path":"centos7_k8s_singlenode.md","ref":"centos7_k8s_singlenode.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-rtd","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-rtd":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","links":{"sidebar":{"SnowThinker":"https://snowthinker.github.io/"}},"gitbook":"*","description":""},"file":{"path":"README.md","mtime":"2019-04-21T13:01:56.776Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-21T13:04:22.381Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SpringBoot配置多个application.ptoperties文件.md","level":"1.4","depth":1,"next":{"title":"FastDFS安装.md","level":"1.5","depth":1,"path":"fastdfs_install.md","ref":"fastdfs_install.md","articles":[]},"previous":{"title":"K8S监控安装配置","level":"1.3","depth":1,"path":"k8s_monitor.md","ref":"k8s_monitor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-rtd","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-rtd":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","links":{"sidebar":{"SnowThinker":"https://snowthinker.github.io/"}},"gitbook":"*","description":""},"file":{"path":"springboot_mutiple_application.md","mtime":"2019-04-07T16:28:42.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-21T13:04:22.381Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
