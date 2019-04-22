@@ -1,0 +1,427 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>K8S监控安装配置 · SnowThinker资源库</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="SnowThinker">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../" />
+    
+    
+    <link rel="prev" href="centos7_k8s_singlenode.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    开源清单
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Kubernetes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="centos7_k8s_singlenode.html">
+            
+                <a href="centos7_k8s_singlenode.html">
+            
+                    
+                    CentOS7 安装 K8S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="k8s_monitor.html">
+            
+                <a href="k8s_monitor.html">
+            
+                    
+                    K8S监控安装配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../springboot/mybatis_springmvc_enum.html">
+            
+                <a href="../springboot/mybatis_springmvc_enum.html">
+            
+                    
+                    MyBatis SpringMVC 枚举支持
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../springboot/springboot_mutiple_application.html">
+            
+                <a href="../springboot/springboot_mutiple_application.html">
+            
+                    
+                    SpringBoot配置多个application.ptoperties文件.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../others/fastdfs_install.html">
+            
+                <a href="../others/fastdfs_install.html">
+            
+                    
+                    FastDFS安装.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >K8S监控安装配置</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="webapi-server-promotheus-grafana-&#x76D1;&#x63A7;">Webapi Server Promotheus Grafana &#x76D1;&#x63A7;</h1>
+<h4 id="&#x90E8;&#x7F72;premetheus">&#x90E8;&#x7F72;Premetheus</h4>
+<pre><code># &#x6307;&#x5B9A;9501&#x7AEF;&#x53E3;&#x542F;&#x52A8;
+./prometheus --web.listen-address=&quot;:9501&quot; &amp;
+</code></pre><h1 id="&#x90E8;&#x7F72;-node-exporter">&#x90E8;&#x7F72; node-exporter</h1>
+<p><a href="https://yunlzheng.gitbook.io/prometheus-book/parti-prometheus-ji-chu/quickstart/prometheus-quick-start/use-node-exporter" target="_blank">https://yunlzheng.gitbook.io/prometheus-book/parti-prometheus-ji-chu/quickstart/prometheus-quick-start/use-node-exporter</a></p>
+<pre><code>curl -OL https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz
+tar -xzf node_exporter-0.17.0.linux-amd64.tar.gz
+
+# &#x6307;&#x5B9A;9500&#x7AEF;&#x53E3;&#x542F;&#x52A8;
+./node_exporter --web.listen-address=&quot;:9500&quot; &amp;
+</code></pre><h4 id="&#x4ECE;node-exporter&#x6536;&#x96C6;&#x76D1;&#x63A7;&#x6570;&#x636E;">&#x4ECE;Node Exporter&#x6536;&#x96C6;&#x76D1;&#x63A7;&#x6570;&#x636E;</h4>
+<p>&#x914D;&#x7F6E;&#x83B7;&#x53D6; prometheus, node export, kubernetes &#x7684;metrics&#x6570;&#x636E;&#x62BD;&#x53D6;</p>
+<pre><code>scrape_configs:
+  - job_name: &apos;prometheus&apos;
+    static_configs:
+      - targets: [&apos;192.168.0.32:9501&apos;]
+  # &#x91C7;&#x96C6;node exporter&#x76D1;&#x63A7;&#x6570;&#x636E;
+  - job_name: &apos;node&apos;
+    static_configs:
+      - targets: [&apos;192.168.0.32:9500&apos;]
+  - job_name: &apos;kubernetes&apos;
+    static_configs:
+      - targets: [&apos;192.168.0.32:8080&apos;]
+  - job_name: &apos;kubernetes-cAdvisor&apos;
+    static_configs:
+      - targets: [&apos;192.168.0.32:4194&apos;]
+</code></pre><p>&#x91CD;&#x65B0;&#x542F;&#x52A8;Prometheus Server</p>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <img width="300" height="300" src="res/wechat_reward.png"> &#xA0; &#xA0;&#xA0; <img width="300" height="300" src="res/alipay.jpg"> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-04-22 19:24:47 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="centos7_k8s_singlenode.html" class="navigation navigation-prev " aria-label="Previous page: CentOS7 安装 K8S">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../" class="navigation navigation-next " aria-label="Next page: SpringBoot">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"K8S监控安装配置","level":"1.2.2","depth":2,"next":{"title":"SpringBoot","level":"1.3","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"MyBatis SpringMVC 枚举支持","level":"1.3.1","depth":2,"path":"springboot/mybatis_springmvc_enum.md","ref":"springboot/mybatis_springmvc_enum.md","articles":[]},{"title":"SpringBoot配置多个application.ptoperties文件.md","level":"1.3.2","depth":2,"path":"springboot/springboot_mutiple_application.md","ref":"springboot/springboot_mutiple_application.md","articles":[]}]},"previous":{"title":"CentOS7 安装 K8S","level":"1.2.1","depth":2,"path":"kubernetes/centos7_k8s_singlenode.md","ref":"kubernetes/centos7_k8s_singlenode.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<img width='300' height='300' src='res/wechat_reward.png'/> &nbsp; &nbsp;&nbsp; <img width='300' height='300' src='res/alipay.jpg'/>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"kubernetes/k8s_monitor.md","mtime":"2019-04-22T11:24:47.605Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-22T11:49:03.488Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

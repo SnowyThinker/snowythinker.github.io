@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>CentOS7 安装 K8s · SnowThinker资源库</title>
+        <title>CentOS7 安装 K8S · SnowThinker资源库</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -12,26 +12,36 @@
         
         
     
-    <link rel="stylesheet" href="gitbook/style.css">
+    <link rel="stylesheet" href="../gitbook/style.css">
 
     
-            <link rel="stylesheet" href="gitbook/theme.css">
-            <link rel="stylesheet" href="gitbook/theme-fix.css">
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
                 
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
                 
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
                 
             
         
@@ -53,68 +63,65 @@
     
 
         
+    
     
     
     <meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
     <link rel="next" href="k8s_monitor.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="../" />
     
 
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {};
+    </script>
+
     </head>
-    <body class="wy-body-for-nav">
+    <body>
         
-<div class="book wy-grid-for-nav">
-    
-    <nav role="navigation" data-toggle="wy-nav-shift" class="wy-nav-side">
-        <div class="wy-side-scroll">
-            <div class="wy-side-nav-search">
-                <!-- here comes title -->
-                <div role="search">
-                    
+<div class="book">
+    <div class="book-summary">
+        
+            
 <div id="book-search-input" role="search">
     <input type="text" placeholder="Type to search" />
 </div>
 
-                </div>
-            </div>
-              
+            
+                <nav role="navigation">
                 
 
 
-<div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-    
-    
-    
-        
-        <li>
-            <a href="https://snowthinker.github.io/" target="_blank" class="custom-link">导航</a>
-        </li>
+<ul class="summary">
     
     
 
-    
-    <li class="divider"></li>
     
 
     
         
         
     
-        
-        <li class="toctree-l1 " data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="../">
             
-                <a href="./">
+                <a href="../">
             
-                    <span class="toctree-expand"></span>
+                    
                     开源清单
             
                 </a>
@@ -123,37 +130,38 @@
             
         </li>
     
-        
-        <li class="toctree-l1 current" data-level="1.2" data-path="centos7_k8s_singlenode.html">
+        <li class="chapter " data-level="1.2" data-path="../">
             
-                <a href="centos7_k8s_singlenode.html">
+                <a href="../">
             
-                    <span class="toctree-expand"></span>
-                    CentOS7 安装 K8s
+                    
+                    Kubernetes
             
                 </a>
             
 
             
+            <ul class="articles">
                 
-                
-                <ul>
+    
+        <li class="chapter active" data-level="1.2.1" data-path="centos7_k8s_singlenode.html">
+            
+                <a href="centos7_k8s_singlenode.html">
+            
                     
-                    
-                    
-                    <li class="toctree-l2"><a class="reference internal" href="#&#x90E8;&#x7F72;-kubernetes-dashboard">&#x90E8;&#x7F72; Kubernetes Dashboard</a></li>
-                    
-                </ul>
-                
+                    CentOS7 安装 K8S
+            
+                </a>
+            
+
             
         </li>
     
-        
-        <li class="toctree-l1 " data-level="1.3" data-path="k8s_monitor.html">
+        <li class="chapter " data-level="1.2.2" data-path="k8s_monitor.html">
             
                 <a href="k8s_monitor.html">
             
-                    <span class="toctree-expand"></span>
+                    
                     K8S监控安装配置
             
                 </a>
@@ -162,12 +170,43 @@
             
         </li>
     
-        
-        <li class="toctree-l1 " data-level="1.4" data-path="springboot_mutiple_application.html">
+
+            </ul>
             
-                <a href="springboot_mutiple_application.html">
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
             
-                    <span class="toctree-expand"></span>
+                <a href="../">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../springboot/mybatis_springmvc_enum.html">
+            
+                <a href="../springboot/mybatis_springmvc_enum.html">
+            
+                    
+                    MyBatis SpringMVC 枚举支持
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../springboot/springboot_mutiple_application.html">
+            
+                <a href="../springboot/springboot_mutiple_application.html">
+            
+                    
                     SpringBoot配置多个application.ptoperties文件.md
             
                 </a>
@@ -176,12 +215,30 @@
             
         </li>
     
-        
-        <li class="toctree-l1 " data-level="1.5" data-path="fastdfs_install.html">
+
+            </ul>
             
-                <a href="fastdfs_install.html">
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../">
             
-                    <span class="toctree-expand"></span>
+                <a href="../">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../others/fastdfs_install.html">
+            
+                <a href="../others/fastdfs_install.html">
+            
+                    
                     FastDFS安装.md
             
                 </a>
@@ -191,57 +248,54 @@
         </li>
     
 
-    
-</div>
-
-            
-            
-        </div>
-    </nav>
-    
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-        <nav class="wy-nav-top" aria-label="top navigation">
-            <i data-toggle="wy-nav-top" class="fa fa-bars shift-menu"></i>
-            <a href="#">CentOS7 安装 K8s</a>
-            
-                <!-- <i data-toggle="wy-nav-top" class="fa fa-bars"></i> -->
-            
-        </nav>
-        <div class="wy-nav-content">
-            
-                <div class="rst-content">
-                    
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-    <ul class="wy-breadcrumbs">
-        <li><a href="javascript:void(0)">CentOS7 安装 K8s</a></li>
-        <li class="wy-breadcrumbs-aside">
-            <a href="javascript:void(0)" class="language-picker"><i class="fa fa-globe"></i> <i class="fa fa-caret-down"></i></a>
-            <ul class="language-dropdown">
-                
             </ul>
+            
         </li>
-        <!--
-        <li class="wy-breadcrumbs-aside">        
-            <a href="https://github.com/coleifer/peewee/blob/master/docs/peewee/models.rst" class="fa fa-github"> Edit on GitHub</a>
-        </li>
-        -->
-    </ul>
-    <hr>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >CentOS7 安装 K8S</a>
+    </h1>
 </div>
 
 
 
 
-                    
-                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-                        
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
 <div id="book-search-results">
     <div class="search-noresults">
     
-                            <div itemprop="articleBody">
-                                <div class="section"> <!-- rtd needs a section to handle css properly -->
+                                <section class="normal markdown-section">
                                 
                                 <h1 id="centos7-&#x5B89;&#x88C5;k8s">CentOS7 &#x5B89;&#x88C5;K8S</h1>
 <p><a href="https://blog.51cto.com/wangzhijian/1975356" target="_blank">https://blog.51cto.com/wangzhijian/1975356</a></p>
@@ -642,11 +696,10 @@ kubectl describe service deploy/kubernetes-dashboard
 <p>10250&#xFF0C;Kubelet API
 10255&#xFF0C;Read-only Kubelet API
 30000-32767&#xFF0C;NodePort Services**</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <img width="300" height="300" src="res/wechat_reward.png"> &#xA0; &#xA0;&#xA0; <img width="300" height="300" src="res/alipay.jpg"> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x5199;&#x4E8E;</i> 2019-04-08 00:28:42 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <img width="300" height="300" src="res/wechat_reward.png"> &#xA0; &#xA0;&#xA0; <img width="300" height="300" src="res/alipay.jpg"> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-04-22 19:24:47 </span> </footer>
                                 
-                                </div>
-                            </div>
-                        
+                                </section>
+                            
     </div>
     <div class="search-results">
         <div class="has-results">
@@ -663,62 +716,80 @@ kubectl describe service deploy/kubernetes-dashboard
     </div>
 </div>
 
+                        </div>
                     </div>
-                    <footer>
-                            <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-                                
-                                    
-                                        <a href="./" class="btn btn-neutral" title="" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-                                    
-                                    
-                                        <a href="k8s_monitor.html" class="btn btn-neutral float-right" title="" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-                                    
-                                
-                            </div>
-                    </footer>
-                    
-                </div>
-            
-        </div>
-    </section>
+                
+            </div>
 
-    
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Kubernetes">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="k8s_monitor.html" class="navigation navigation-next " aria-label="Next page: K8S监控安装配置">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CentOS7 安装 K8s","level":"1.2","depth":1,"next":{"title":"K8S监控安装配置","level":"1.3","depth":1,"path":"k8s_monitor.md","ref":"k8s_monitor.md","articles":[]},"previous":{"title":"开源清单","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-rtd","page-footer-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"page-footer-ex":{"copyright":"<img width='300' height='300' src='res/wechat_reward.png'/> &nbsp; &nbsp;&nbsp; <img width='300' height='300' src='res/alipay.jpg'/>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>写于</i>"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-rtd":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","links":{"sidebar":{"导航":"https://snowthinker.github.io/"}},"gitbook":"*","description":""},"file":{"path":"centos7_k8s_singlenode.md","mtime":"2019-04-07T16:28:42.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-21T14:01:41.683Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"CentOS7 安装 K8S","level":"1.2.1","depth":2,"next":{"title":"K8S监控安装配置","level":"1.2.2","depth":2,"path":"kubernetes/k8s_monitor.md","ref":"kubernetes/k8s_monitor.md","articles":[]},"previous":{"title":"Kubernetes","level":"1.2","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"CentOS7 安装 K8S","level":"1.2.1","depth":2,"path":"kubernetes/centos7_k8s_singlenode.md","ref":"kubernetes/centos7_k8s_singlenode.md","articles":[]},{"title":"K8S监控安装配置","level":"1.2.2","depth":2,"path":"kubernetes/k8s_monitor.md","ref":"kubernetes/k8s_monitor.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<img width='300' height='300' src='res/wechat_reward.png'/> &nbsp; &nbsp;&nbsp; <img width='300' height='300' src='res/alipay.jpg'/>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"kubernetes/centos7_k8s_singlenode.md","mtime":"2019-04-22T11:24:47.604Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-22T11:49:03.488Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
 
         
-    <script src="gitbook/gitbook.js"></script>
-    <script src="gitbook/theme-default.js"></script>
-    <script src="gitbook/theme.js"></script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
     
         
-        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
         
     
 
