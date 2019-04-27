@@ -1,0 +1,865 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>CentOS7 安装 K8S · SnowThinker资源库</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="SnowThinker">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="k8s_monitor.html" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    SnowThinker的开源清单
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Kubernetes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="centos7_k8s_singlenode.html">
+            
+                <a href="centos7_k8s_singlenode.html">
+            
+                    
+                    CentOS7 安装 K8S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="k8s_monitor.html">
+            
+                <a href="k8s_monitor.html">
+            
+                    
+                    K8S监控安装配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    JAVA
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../java/pojo-helper.html">
+            
+                <a href="../java/pojo-helper.html">
+            
+                    
+                    Pojo工具类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../springboot/mybatis-helper.html">
+            
+                <a href="../springboot/mybatis-helper.html">
+            
+                    
+                    MyBatis SpringMVC 枚举支持
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../springboot/springboot_mutiple_application.html">
+            
+                <a href="../springboot/springboot_mutiple_application.html">
+            
+                    
+                    SpringBoot配置多个application.ptoperties文件.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Maven
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../maven/maven_official_oss.html">
+            
+                <a href="../maven/maven_official_oss.html">
+            
+                    
+                    Maven部署到官方仓库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../others/fastdfs_install.html">
+            
+                <a href="../others/fastdfs_install.html">
+            
+                    
+                    FastDFS安装.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >CentOS7 安装 K8S</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="centos7-&#x5B89;&#x88C5;k8s">CentOS7 &#x5B89;&#x88C5;K8S</h1>
+<h4 id="&#x8BBE;&#x7F6E;&#x6E90;">&#x8BBE;&#x7F6E;&#x6E90;</h4>
+<pre><code>cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kube*
+EOF
+</code></pre><h4 id="&#x5173;&#x95ED;selinux">&#x5173;&#x95ED;SeLinux</h4>
+<pre><code># Set SELinux in permissive mode (effectively disabling it)
+setenforce 0
+sed -i &apos;s/^SELINUX=enforcing$/SELINUX=permissive/&apos; /etc/selinux/config
+</code></pre><h4 id="&#x5B89;&#x88C5;docker">&#x5B89;&#x88C5;Docker</h4>
+<pre><code>yum install -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+yum list docker-ce --showduplicates | sort -r
+yum -y install docker-ce
+docker --version
+systemctl start docker
+systemctl status docker
+systemctl enable docker
+</code></pre><h4 id="&#x5B89;&#x88C5;etcd">&#x5B89;&#x88C5;etcd</h4>
+<pre><code>wget https://storage.googleapis.com/etcd/v3.2.9/etcd-v3.2.9-linux-amd64.tar.gz
+tar -zxvf etcd-v3.2.9-linux-amd64.tar.gz
+cp etcd-v3.2.9-linux-amd64/etcd* /usr/bin/
+
+etcd --version
+etcdctl --version
+</code></pre><h4 id="&#x5B89;&#x88C5;kubernetes">&#x5B89;&#x88C5;Kubernetes</h4>
+<pre><code>wget https://dl.k8s.io/v1.13.0/kubernetes-server-linux-amd64.tar.gz
+tar -zxvf kubernetes-server-linux-amd64.tar.gz
+cd kubernetes/server/bin/
+cp kubectl kube-apiserver kube-scheduler kube-controller-manager kubelet kube-proxy /usr/bin/       
+kube-apiserver --version
+</code></pre><h4 id="&#x5B89;&#x88C5;-flanneld">&#x5B89;&#x88C5; flanneld</h4>
+<pre><code>curl -L https://github.com/coreos/flannel/releases/download/v0.9.0/flannel-v0.9.0-linux-amd64.tar.gz -o flannel-v0.9.0-linux-amd64.tar.gz
+tar -zxvf flannel-v0.9.0-linux-amd64.tar.gz
+mv flanneld /usr/bin/
+mkdir /usr/libexec/flannel/
+mv mk-docker-opts.sh /usr/libexec/flannel/
+flanneld --version
+</code></pre><h4 id="&#x914D;&#x7F6E;&#x5E76;&#x542F;&#x7528;-etcd">&#x914D;&#x7F6E;&#x5E76;&#x542F;&#x7528; etcd</h4>
+<p>A. &#x914D;&#x7F6E;&#x542F;&#x52A8;&#x9879;</p>
+<pre><code>vim /usr/lib/systemd/system/etcd.service
+
+[Unit]
+Description=etcd
+After=network.target
+After=network-online.target
+Wants=network-online.target
+Documentation=https://github.com/coreos/etcd
+[Service]
+Type=notify
+WorkingDirectory=/var/lib/etcd
+EnvironmentFile=-/etc/etcd/etcd.conf
+ExecStart=/usr/bin/etcd --config-file /etc/etcd/etcd.conf
+Restart=on-failure
+LimitNOFILE=65536
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>B. &#x914D;&#x7F6E;&#x5404;&#x8282;&#x70B9; etcd.conf &#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>mkdir -p /var/lib/etcd/
+mkdir -p /etc/etcd/
+export ETCD_NAME=etcd
+export INTERNAL_IP=192.168.100.104
+
+cat &lt;&lt; EOF &gt; /etc/etcd/etcd.conf 
+name: &apos;${ETCD_NAME}&apos;
+data-dir: &quot;/var/lib/etcd/&quot;
+listen-peer-urls: http://${INTERNAL_IP}:2380
+listen-client-urls: http://${INTERNAL_IP}:2379,http://127.0.0.1:2379
+initial-advertise-peer-urls: http://${INTERNAL_IP}:2380
+advertise-client-urls: http://${INTERNAL_IP}:2379
+initial-cluster: &quot;etcd=http://${INTERNAL_IP}:2380&quot;
+initial-cluster-token: &apos;etcd-cluster&apos;
+initial-cluster-state: &apos;new&apos;
+EOF
+</code></pre><p>&#x6CE8;:
+   new-----&#x521D;&#x59CB;&#x5316;&#x96C6;&#x7FA4;&#x5B89;&#x88C5;&#x65F6;&#x4F7F;&#x7528;&#x8BE5;&#x9009;&#x9879;&#xFF1B;
+   existing-----&#x65B0;&#x52A0;&#x5165;&#x96C6;&#x7FA4;&#x65F6;&#x4F7F;&#x7528;&#x8BE5;&#x9009;&#x9879;&#x3002;</p>
+<p>C. &#x542F;&#x52A8; etcd</p>
+<pre><code>systemctl start etcd
+systemctl status etcd
+systemctl enable etcd
+
+# &#x67E5;&#x770B;&#x96C6;&#x7FA4;&#x6210;&#x5458;
+etcdctl member list
+
+#&#x67E5;&#x770B;&#x96C6;&#x7FA4;&#x5065;&#x5EB7;&#x72B6;&#x51B5;
+etcdctl cluster-health
+</code></pre><h4 id="&#x914D;&#x7F6E;&#x5E76;&#x542F;&#x7528;flanneld">&#x914D;&#x7F6E;&#x5E76;&#x542F;&#x7528;flanneld</h4>
+<p>A. &#x914D;&#x7F6E;&#x542F;&#x52A8;&#x9879;</p>
+<pre><code>vim /usr/lib/systemd/system/flanneld.service
+
+[Unit]
+Description=Flanneld overlay address etcd agent
+After=network.target
+After=network-online.target
+Wants=network-online.target
+After=etcd.service
+Before=docker.service
+[Service]
+Type=notify
+EnvironmentFile=/etc/sysconfig/flanneld
+EnvironmentFile=-/etc/sysconfig/docker-network
+ExecStart=/usr/bin/flanneld-start $FLANNEL_OPTIONS
+ExecStartPost=/usr/libexec/flannel/mk-docker-opts.sh -k DOCKER_NETWORK_OPTIONS -d /run/flannel/docker
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
+RequiredBy=docker.service
+
+
+vim /usr/bin/flanneld-start 
+
+#!/bin/sh
+exec /usr/bin/flanneld \
+        -etcd-endpoints=${FLANNEL_ETCD_ENDPOINTS:-${FLANNEL_ETCD}} \
+        -etcd-prefix=${FLANNEL_ETCD_PREFIX:-${FLANNEL_ETCD_KEY}} \
+        &quot;$@&quot;
+
+chmod 755 /usr/bin/flanneld-start
+</code></pre><p>B. &#x914D;&#x7F6E; flannel &#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>etcdctl mkdir /kube/network
+etcdctl set /kube/network/config &apos;{ &quot;Network&quot;: &quot;10.254.0.0/16&quot; }&apos;
+
+vim /etc/sysconfig/flanneld
+
+FLANNEL_ETCD_ENDPOINTS=&quot;http://192.168.100.104:2379&quot;
+FLANNEL_ETCD_PREFIX=&quot;/kube/network&quot;
+</code></pre><p>C. &#x542F;&#x52A8; flanneld</p>
+<pre><code>systemctl start flanneld
+systemctl status flanneld
+systemctl enable flanneld
+</code></pre><p>D. &#x67E5;&#x770B;&#x5404;&#x8282;&#x70B9;&#x7F51;&#x6BB5;</p>
+<pre><code>cat /var/run/flannel/subnet.env
+</code></pre><p>E. &#x66F4;&#x6539; docker &#x7F51;&#x6BB5;&#x4E3A; flannel &#x5206;&#x914D;&#x7684;&#x7F51;&#x6BB5;</p>
+<pre><code>export FLANNEL_SUBNET=10.254.26.1/24
+
+cat &lt;&lt; EOF &gt; /etc/docker/daemon.json
+{
+  &quot;bip&quot; : &quot;$FLANNEL_SUBNET&quot;
+}
+EOF
+
+systemctl daemon-reload
+systemctl restart docker
+</code></pre><p>F. &#x67E5;&#x770B;&#x662F;&#x5426;&#x5DF2;&#x5206;&#x914D;&#x76F8;&#x5E94;&#x7F51;&#x6BB5;</p>
+<pre><code>ip route show
+</code></pre><p>G. &#x4F7F;&#x7528; etcdctl &#x547D;&#x4EE4;&#x67E5;&#x770B; flannel &#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;</p>
+<pre><code>etcdctl ls /kube/network/subnets
+
+etcdctl -o extended  get /kube/network/subnets/10.254.26.0-24
+</code></pre><p>H. &#x6D4B;&#x8BD5;&#x7F51;&#x7EDC;&#x662F;&#x5426;&#x6B63;&#x5E38;</p>
+<pre><code>ping -c 4 10.254.26.1
+</code></pre><h1 id="">#</h1>
+<h4 id="&#x914D;&#x7F6E;&#x5E76;&#x542F;&#x7528;-kubernetes-master-&#x8282;&#x70B9;">&#x914D;&#x7F6E;&#x5E76;&#x542F;&#x7528; Kubernetes Master &#x8282;&#x70B9;</h4>
+<p>Kubernetes Master &#x8282;&#x70B9;&#x5305;&#x542B;&#x7684;&#x7EC4;&#x4EF6;:
+    kube-apiserver
+    kube-scheduler
+    kube-controller-manager</p>
+<p>A. &#x914D;&#x7F6E; config &#x6587;&#x4EF6;</p>
+<pre><code>mkdir -p /etc/kubernetes/
+
+vim /etc/kubernetes/config
+
+KUBE_LOGTOSTDERR=&quot;--logtostderr=true&quot;
+KUBE_LOG_LEVEL=&quot;--v=0&quot;
+KUBE_ALLOW_PRIV=&quot;--allow-privileged=false&quot;
+KUBE_MASTER=&quot;--master=http://192.168.100.104:8080&quot;
+</code></pre><p>B. &#x914D;&#x7F6E; kube-apiserver &#x542F;&#x52A8;&#x9879;</p>
+<pre><code>vim /usr/lib/systemd/system/kube-apiserver.service 
+
+[Unit]
+Description=Kubernetes API Server
+Documentation=https://github.com/kubernetes/kubernetes
+After=network.target
+After=etcd.service
+[Service]
+EnvironmentFile=-/etc/kubernetes/config
+EnvironmentFile=-/etc/kubernetes/apiserver
+ExecStart=/usr/bin/kube-apiserver \
+            $KUBE_LOGTOSTDERR \
+            $KUBE_LOG_LEVEL \
+            $KUBE_ETCD_SERVERS \
+            $KUBE_API_ADDRESS \
+            $KUBE_API_PORT \
+            $KUBELET_PORT \
+            $KUBE_ALLOW_PRIV \
+            $KUBE_SERVICE_ADDRESSES \
+            $KUBE_ADMISSION_CONTROL \
+            $KUBE_API_ARGS
+Restart=on-failure
+Type=notify
+LimitNOFILE=65536
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>C. &#x914D;&#x7F6E; apiserver &#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>vim /etc/kubernetes/apiserver
+
+KUBE_API_ADDRESS=&quot;--advertise-address=192.168.100.104 --bind-address=192.168.100.104 --insecure-bind-address=0.0.0.0&quot;
+KUBE_ETCD_SERVERS=&quot;--etcd-servers=http://192.168.100.104:2379&quot;
+KUBE_SERVICE_ADDRESSES=&quot;--service-cluster-ip-range=10.254.0.0/16&quot;
+KUBE_ADMISSION_CONTROL=&quot;--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota&quot;
+KUBE_API_ARGS=&quot;--enable-swagger-ui=true --apiserver-count=3 --audit-log-maxage=30 --audit-log-maxbackup=3 --audit-log-maxsize=100 --audit-log-path=/var/log/apiserver.log&quot;
+</code></pre><p>&#x6CE8;:&#x4F7F;&#x7528; HTTP &#x548C; &#x4F7F;&#x7528; HTTPS &#x7684;&#x6700;&#x5927;&#x4E0D;&#x540C;&#x5C31;&#x662F;--admission-control=ServiceAccount&#x9009;&#x9879;&#x3002;</p>
+<p>D. &#x542F;&#x52A8; kube-apiserver</p>
+<pre><code>systemctl start kube-apiserver
+systemctl status kube-apiserver
+systemctl enable kube-apiserver
+</code></pre><p>E. &#x914D;&#x7F6E; kube-controller-manager &#x542F;&#x52A8;&#x9879;</p>
+<pre><code>vim /usr/lib/systemd/system/kube-controller-manager.service
+
+[Unit]
+Description=Kubernetes Controller Manager
+Documentation=https://github.com/kubernetes/kubernetes
+[Service]
+EnvironmentFile=-/etc/kubernetes/config
+EnvironmentFile=-/etc/kubernetes/controller-manager
+ExecStart=/usr/bin/kube-controller-manager \
+            $KUBE_LOGTOSTDERR \
+            $KUBE_LOG_LEVEL \
+            $KUBE_MASTER \
+            $KUBE_CONTROLLER_MANAGER_ARGS
+Restart=on-failure
+LimitNOFILE=65536
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>F. &#x914D;&#x7F6E; kube-controller-manager &#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>vim /etc/kubernetes/controller-manager
+
+KUBE_CONTROLLER_MANAGER_ARGS=&quot;--address=0.0.0.0 --service-cluster-ip-range=10.254.0.0/16 --cluster-name=kubernetes&quot;
+</code></pre><p>G.&#x542F;&#x52A8; kube-controller-manager</p>
+<pre><code>systemctl start kube-controller-manager
+systemctl status kube-controller-manager
+systemctl enable kube-controller-manager
+</code></pre><p>H. &#x914D;&#x7F6E; kube-scheduler &#x542F;&#x52A8;&#x9879;</p>
+<pre><code>vim /usr/lib/systemd/system/kube-scheduler.service 
+
+[Unit]
+Description=Kubernetes Scheduler Plugin
+Documentation=https://github.com/kubernetes/kubernetes
+[Service]
+EnvironmentFile=-/etc/kubernetes/config
+EnvironmentFile=-/etc/kubernetes/scheduler
+ExecStart=/usr/bin/kube-scheduler \
+            $KUBE_LOGTOSTDERR \
+            $KUBE_LOG_LEVEL \
+            $KUBE_MASTER \
+            $KUBE_SCHEDULER_ARGS
+Restart=on-failure
+LimitNOFILE=65536
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>I. &#x914D;&#x7F6E; kube-scheduler &#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>vim /etc/kubernetes/scheduler
+KUBE_SCHEDULER_ARGS=&quot;--address=0.0.0.0&quot;
+</code></pre><p>J. &#x542F;&#x52A8; kube-scheduler</p>
+<pre><code>systemctl start kube-scheduler
+systemctl status kube-scheduler
+systemctl enable kube-scheduler
+</code></pre><p>K. &#x9A8C;&#x8BC1; Master &#x8282;&#x70B9;</p>
+<pre><code>kubectl get componentstatuses
+kubectl get cs
+</code></pre><h4 id="&#x914D;&#x7F6E;&#x5E76;&#x542F;&#x7528;-kubernetes-node-&#x8282;&#x70B9;">&#x914D;&#x7F6E;&#x5E76;&#x542F;&#x7528; Kubernetes Node &#x8282;&#x70B9;</h4>
+<p>Kubernetes Node &#x8282;&#x70B9;&#x5305;&#x542B;&#x5982;&#x4E0B;&#x7EC4;&#x4EF6;:
+  kubelet
+  kube-proxy</p>
+<p>A. &#x914D;&#x7F6E; kubelet &#x542F;&#x52A8;&#x9879;</p>
+<pre><code>vim /usr/lib/systemd/system/kubelet.service 
+
+[Unit]
+Description=Kubernetes Kubelet Server
+Documentation=https://github.com/kubernetes/kubernetes
+After=docker.service
+Requires=docker.service
+[Service]
+WorkingDirectory=/var/lib/kubelet
+EnvironmentFile=-/etc/kubernetes/config
+EnvironmentFile=-/etc/kubernetes/kubelet
+ExecStart=/usr/bin/kubelet \
+            $KUBE_LOGTOSTDERR \
+            $KUBE_LOG_LEVEL \
+            $KUBELET_ADDRESS \
+            $KUBELET_PORT \
+            $KUBELET_HOSTNAME \
+            $KUBE_ALLOW_PRIV \
+            $KUBELET_POD_INFRA_CONTAINER \
+            $KUBELET_ARGS
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>B. &#x914D;&#x7F6E; kubelet &#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>mkdir -p /var/lib/kubelet
+export MASTER_ADDRESS=192.168.100.104
+export KUBECONFIG_DIR=/etc/kubernetes
+
+cat &lt;&lt;EOF &gt; &quot;${KUBECONFIG_DIR}/kubelet.kubeconfig&quot;
+apiVersion: v1
+kind: Config
+clusters:
+  - cluster:
+      server: http://${MASTER_ADDRESS}:8080/
+    name: local
+contexts:
+  - context:
+      cluster: local
+    name: local
+current-context: local
+EOF
+
+
+vim /etc/kubernetes/kubelet
+
+KUBELET_ADDRESS=&quot;--address=0.0.0.0&quot;
+KUBELET_PORT=&quot;--port=10250&quot;
+KUBELET_HOSTNAME=&quot;--hostname-override=XXXXX&quot;
+KUBELET_POD_INFRA_CONTAINER=&quot;--pod-infra-container-p_w_picpath=hub.c.163.com/k8s163/pause-amd64:3.0&quot;
+KUBELET_ARGS=&quot;--kubeconfig=/etc/kubernetes/kubelet.kubeconfig --fail-swap-on=false --cluster-dns=10.254.0.2&quot;
+
+#--cluster-dns=10.254.0.2 &#x6B64;&#x5904;DNS &#x4E00;&#x5B9A;&#x662F;&#x4EE5;.2&#x4E3A;&#x7ED3;&#x5C3E;&#x7684;
+
+# &#x4E0B;&#x8F7D;&#x955C;&#x50CF;
+docker pull daocloud.io/daocloud/google_containers_pause-amd64:3.1
+</code></pre><p>C. &#x542F;&#x52A8; kubelet</p>
+<pre><code>systemctl start kubelet
+systemctl status kubelet
+systemctl enable kubelet
+</code></pre><p>D. &#x914D;&#x7F6E; kube-proxy &#x542F;&#x52A8;&#x9879;</p>
+<pre><code>vim /usr/lib/systemd/system/kube-proxy.service 
+
+[Unit]
+Description=Kubernetes Kube-Proxy Server
+Documentation=https://github.com/kubernetes/kubernetes
+After=network.target
+[Service]
+EnvironmentFile=-/etc/kubernetes/config
+EnvironmentFile=-/etc/kubernetes/proxy
+ExecStart=/usr/bin/kube-proxy \
+            $KUBE_LOGTOSTDERR \
+            $KUBE_LOG_LEVEL \
+            $KUBE_MASTER \
+            $KUBE_PROXY_ARGS
+Restart=on-failure
+LimitNOFILE=65536
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>E. &#x914D;&#x7F6E; kube-proxy &#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>vim /etc/kubernetes/proxy 
+KUBE_PROXY_ARGS=&quot;--bind-address=192.168.100.104 --hostname-override=192.168.100.104 --cluster-cidr=10.254.0.0/16&quot;
+</code></pre><p>F. &#x542F;&#x52A8; kube-proxy</p>
+<pre><code>systemctl start kube-proxy
+systemctl status kube-proxy
+systemctl enable kube-proxy
+</code></pre><h2 id="&#x90E8;&#x7F72;-kubernetes-dashboard">&#x90E8;&#x7F72; Kubernetes Dashboard</h2>
+<p>&#x53C2;&#x8003;&#xFF1A; <a href="https://www.wuweixin.com/2017/05/20/kubernetes-dashboard-deploy/" target="_blank">https://www.wuweixin.com/2017/05/20/kubernetes-dashboard-deploy/</a></p>
+<pre><code>
+wget https://raw.githubusercontent.com/kubernetes/dashboard/v1.5.1/src/deploy/kubernetes-dashboard.yaml
+
+# &#x4FEE;&#x6539; apiserver-host
+- --apiserver-host=http://192.168.0.1:8080
+
+# &#x521B;&#x5EFA;&#x5B9E;&#x4F8B;
+kubectl create -f kubernetes-dashboard.yaml
+</code></pre><h1 id="&#x521B;&#x5EFA;&#x9519;&#x8BEF;&#x53EF;&#x901A;&#x8FC7;&#x5220;&#x9664;&#x547D;&#x4EE4;">&#x521B;&#x5EFA;&#x9519;&#x8BEF;&#x53EF;&#x901A;&#x8FC7;&#x5220;&#x9664;&#x547D;&#x4EE4;</h1>
+<p>kubectl delete -f kubernetes-dashboard.yaml</p>
+<pre><code># &#x67E5;&#x770B;&#x6240;&#x6709;&#x5B9E;&#x4F8B;
+kubectl get all --all-namespaces
+
+# &#x63CF;&#x8FF0;&#x5BB9;&#x5668;
+kubectl describe pods deploy/kubernetes-dashboard
+kubectl describe service deploy/kubernetes-dashboard
+</code></pre><h1 id="&#x83B7;&#x53D6;&#x6240;&#x6709;namespace">&#x83B7;&#x53D6;&#x6240;&#x6709;namespace</h1>
+<p>kubectl get namespace</p>
+<h1 id="&#x83B7;&#x53D6;&#x6307;&#x5B9A;namespace&#x4E0B;&#x9762;&#x7684;pods">&#x83B7;&#x53D6;&#x6307;&#x5B9A;namespace&#x4E0B;&#x9762;&#x7684;pods</h1>
+<p>kubectl --namespace=kube-public get pods</p>
+<h1 id="&#x63CF;&#x8FF0;&#x6307;&#x5B9A;pod">&#x63CF;&#x8FF0;&#x6307;&#x5B9A;pod</h1>
+<p>kubectl describe pod <podname> --namespace=<namespace></namespace></podname></p>
+<h1 id="&#x83B7;&#x53D6;proxy&#x5BF9;&#x5916;&#x6620;&#x5C04;&#x7684;&#x8BBF;&#x95EE;&#x5730;&#x5740;">&#x83B7;&#x53D6;proxy&#x5BF9;&#x5916;&#x6620;&#x5C04;&#x7684;&#x8BBF;&#x95EE;&#x5730;&#x5740;</h1>
+<p>kubectl cluster-info</p>
+<h1 id="master-node&#x4E0A;">Master Node&#x4E0A;</h1>
+<p>6443*&#xFF0C;Kubernetes API server
+2379-2380&#xFF0C; etcd server client API
+10250&#xFF0C; Kubelet API
+10251&#xFF0C;kube-scheduler
+10252&#xFF0C;kube-controller-manager
+10255&#xFF0C;Read-only Kubelet API</p>
+<h1 id="worker-node&#x4E0A;&#x9700;&#x8981;&#x4EE5;&#x4E0B;tcp&#x7AEF;&#x53E3;&#xFF1A;">worker node&#x4E0A;&#x9700;&#x8981;&#x4EE5;&#x4E0B;TCP&#x7AEF;&#x53E3;&#xFF1A;</h1>
+<p>10250&#xFF0C;Kubelet API
+10255&#xFF0C;Read-only Kubelet API
+30000-32767&#xFF0C;NodePort Services**</p>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-04-22 20:11:47 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Kubernetes">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="k8s_monitor.html" class="navigation navigation-next " aria-label="Next page: K8S监控安装配置">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"CentOS7 安装 K8S","level":"1.2.1","depth":2,"next":{"title":"K8S监控安装配置","level":"1.2.2","depth":2,"path":"kubernetes/k8s_monitor.md","ref":"kubernetes/k8s_monitor.md","articles":[]},"previous":{"title":"Kubernetes","level":"1.2","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"CentOS7 安装 K8S","level":"1.2.1","depth":2,"path":"kubernetes/centos7_k8s_singlenode.md","ref":"kubernetes/centos7_k8s_singlenode.md","articles":[]},{"title":"K8S监控安装配置","level":"1.2.2","depth":2,"path":"kubernetes/k8s_monitor.md","ref":"kubernetes/k8s_monitor.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"kubernetes/centos7_k8s_singlenode.md","mtime":"2019-04-22T12:11:47.793Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-27T05:35:23.997Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
