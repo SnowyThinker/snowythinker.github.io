@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Pojo������ · SnowThinker资源库</title>
+        <title>Maven checkstyle���� · SnowThinker资源库</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,7 +77,7 @@
     <link rel="next" href="../" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="maven_official_oss.html" />
     
 
     <style>
@@ -189,9 +189,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="pojo-helper.html">
+        <li class="chapter " data-level="1.3.1" data-path="../java/pojo-helper.html">
             
-                <a href="pojo-helper.html">
+                <a href="../java/pojo-helper.html">
             
                     
                     Pojo������
@@ -266,9 +266,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../maven/maven_official_oss.html">
+        <li class="chapter " data-level="1.5.1" data-path="maven_official_oss.html">
             
-                <a href="../maven/maven_official_oss.html">
+                <a href="maven_official_oss.html">
             
                     
                     Maven���𵽹ٷ��ֿ�
@@ -279,9 +279,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../maven/maven_checkstyle.html">
+        <li class="chapter active" data-level="1.5.2" data-path="maven_checkstyle.html">
             
-                <a href="../maven/maven_checkstyle.html">
+                <a href="maven_checkstyle.html">
             
                     
                     Maven checkstyle����
@@ -372,7 +372,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Pojo������</a>
+        <a href=".." >Maven checkstyle����</a>
     </h1>
 </div>
 
@@ -387,69 +387,39 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="pojo-helperhttpsgithubcomsnowthinkerpojo-helper">pojo-helper(<a href="https://github.com/snowThinker/pojo-helper" target="_blank">https://github.com/snowThinker/pojo-helper</a>)</h1>
-<p><a href="https://mvnrepository.com/artifact/io.github.snowthinker/mybatis-helper" target="_blank"><img src="https://img.shields.io/maven-central/v/io.github.snowthinker/mybatis-helper.svg?label=Maven%20Central" alt="Maven Central"></a>
-<a href="https://www.apache.org/licenses/LICENSE-2.0.html" target="_blank"><img src="https://img.shields.io/badge/license-Apache%202-4EB1BA.svg" alt="License"></a></p>
-<h2 id="&#x4E3B;&#x8981;&#x529F;&#x80FD;">&#x4E3B;&#x8981;&#x529F;&#x80FD;</h2>
-<ul>
-<li><strong>Java Bean&#x63A9;&#x7801;&#x652F;&#x6301;</strong>&#xFF1A; Mask or encrypt bean with annotation</li>
-<li><strong>Java Bean&#x7075;&#x6D3B;&#x8F6C;&#x6362;&#x7C7B;</strong>&#xFF1A; Rich reflection tools</li>
-</ul>
-<p>Usage:</p>
-<h5 id="1-add-maven-dependency">1. Add maven dependency</h5>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.github.snowthinker<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>pojo-helper<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-</code></pre>
-<h5 id="2-write-mask-or-encryption-bean-and-rewrite-tostring-method">2. Write mask or encryption bean and rewrite toString() method</h5>
-<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MaskBean</span> </span>{
-    <span class="hljs-keyword">private</span> String name;
-
-    <span class="hljs-meta">@Mask</span>(type=MaskType.MOBILE, format=<span class="hljs-string">&quot;#&quot;</span>)
-    <span class="hljs-keyword">private</span> String mobile;
-
-    <span class="hljs-meta">@Mask</span>(type=MaskType.IDCARD)
-    <span class="hljs-keyword">private</span> String idcard;
-
-    <span class="hljs-meta">@Encryption</span>(type=EncryptionType.AES)
-    <span class="hljs-keyword">private</span> String cardNumber;
-
-    <span class="hljs-meta">@Mask</span>(type=MaskType.ADDRESS)
-    <span class="hljs-keyword">private</span> String address;
-
-    <span class="hljs-keyword">private</span> Date birthday;
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> MaskUtils.toString(<span class="hljs-keyword">this</span>);
-    }
-    <span class="hljs-comment">//TODO getter and setters</span>
-}
-</code></pre>
-<h5 id="3-run-the-test-case">3. Run the test case</h5>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MaskUtilsTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TestCase</span> </span>{
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testMaskBean</span><span class="hljs-params">()</span> </span>{
-        MaskBean maskBean = <span class="hljs-keyword">new</span> MaskBean();
-        maskBean.setName(<span class="hljs-string">&quot;Andrew&quot;</span>);
-        maskBean.setMobile(<span class="hljs-string">&quot;12318638123&quot;</span>);
-        maskBean.setIdcard(<span class="hljs-string">&quot;123212196309222123&quot;</span>);
-        maskBean.setCardNumber(<span class="hljs-string">&quot;1238390056241234&quot;</span>);
-        maskBean.setAddress(<span class="hljs-string">&quot;2915 Canyon Lake Dr, Rapid City, SD 57702&quot;</span>);
-        maskBean.setBirthday(<span class="hljs-keyword">new</span> Date());
-        maskBean.setAge(<span class="hljs-number">17</span>);
-
-        AESEncryptor.encryptObject(maskBean);
-
-        System.out.printf(<span class="hljs-string">&quot;after mask and encrypt: %s\r\n&quot;</span>, maskBean);
-    }
-}
-</code></pre>
-<h5 id="4output">4.Output:</h5>
-<pre><code>after mask and encrypt: MaskBean[name=Andrew, mobile=123####8123, idcard=1232121963****2123, cardNumber=jzvCqL2QEMQliI2Pvdx7Chi7uEURzsK8I7iejfobS7Q=, address=2915 Canyon Lake Dr, Rapid City, ****7702, birthday=Sat Apr 29 11:36:35 CST 2017, age=17
-</code></pre><footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-05-10 14:38:36 </span> </footer>
+                                <h1 id="maven-&#x914D;&#x7F6E;checkstyle">maven &#x914D;&#x7F6E;checkstyle</h1>
+<h4 id="maven-&#x914D;&#x7F6E;">maven &#x914D;&#x7F6E;</h4>
+<pre><code>&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-checkstyle-plugin&lt;/artifactId&gt;
+    &lt;version&gt;3.0.0&lt;/version&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.puppycrawl.tools&lt;/groupId&gt;
+            &lt;artifactId&gt;checkstyle&lt;/artifactId&gt;
+            &lt;version&gt;8.20&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;configuration&gt;
+                &lt;configLocation&gt;checkstyle.xml&lt;/configLocation&gt;
+                &lt;encoding&gt;UTF-8&lt;/encoding&gt;
+                &lt;consoleOutput&gt;true&lt;/consoleOutput&gt;
+                &lt;failsOnError&gt;true&lt;/failsOnError&gt;
+                &lt;skip&gt;false&lt;/skip&gt;
+            &lt;/configuration&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;check&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+</code></pre><h4 id="checkstyle&#x6A21;&#x677F;">checkstyle&#x6A21;&#x677F;</h4>
+<p><a href="https://github.com/checkstyle/checkstyle/tree/master/src/main/resources" target="_blank">https://github.com/checkstyle/checkstyle/tree/master/src/main/resources</a></p>
+<p>&#x53EF;&#x4FEE;&#x6539; severity &#x4E3A; error&#xFF0C;&#x5F53;&#x7F16;&#x8BD1;&#x8FDD;&#x53CD;&#x89C4;&#x8303;&#x7684;&#x65F6;&#x5019;&#x963B;&#x6B62;&#x7F16;&#x8BD1;&#x6253;&#x5305;</p>
+<pre><code>&lt;property name=&quot;severity&quot; value=&quot;error&quot;/&gt;
+</code></pre><footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-05-09 10:26:44 </span> </footer>
                                 
                                 </section>
                             
@@ -476,12 +446,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: JAVA">
+                <a href="maven_official_oss.html" class="navigation navigation-prev " aria-label="Previous page: Maven���𵽹ٷ��ֿ�">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../" class="navigation navigation-next " aria-label="Next page: SpringBoot">
+                <a href="../" class="navigation navigation-next " aria-label="Next page: ����">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -492,7 +462,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pojo������","level":"1.3.1","depth":2,"next":{"title":"SpringBoot","level":"1.4","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"MyBatis ö��֧��","level":"1.4.1","depth":2,"path":"springboot/mybatis-helper.md","ref":"springboot/mybatis-helper.md","articles":[]},{"title":"SpringBoot���ö��application.ptoperties�ļ�.md","level":"1.4.2","depth":2,"path":"springboot/springboot_mutiple_application.md","ref":"springboot/springboot_mutiple_application.md","articles":[]}]},"previous":{"title":"JAVA","level":"1.3","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"Pojo������","level":"1.3.1","depth":2,"path":"java/pojo-helper.md","ref":"java/pojo-helper.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"java/pojo-helper.md","mtime":"2019-05-10T06:38:36.383Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-10T06:38:54.375Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Maven checkstyle����","level":"1.5.2","depth":2,"next":{"title":"����","level":"1.6","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"FastDFS��װ","level":"1.6.1","depth":2,"path":"others/fastdfs_install.md","ref":"others/fastdfs_install.md","articles":[]},{"title":"Elasticsearch LocaDateTimeӳ��","level":"1.6.2","depth":2,"path":"others/elasticsearch_datetime.md","ref":"others/elasticsearch_datetime.md","articles":[]}]},"previous":{"title":"Maven���𵽹ٷ��ֿ�","level":"1.5.1","depth":2,"path":"maven/maven_official_oss.md","ref":"maven/maven_official_oss.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"maven/maven_checkstyle.md","mtime":"2019-05-09T02:26:44.132Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-10T06:38:54.375Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
