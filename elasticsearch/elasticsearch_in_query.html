@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Pojo工具类 · SnowThinker资源库</title>
+        <title>Elasticsearch in 查询 · SnowThinker资源库</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -74,10 +74,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../" />
+    <link rel="next" href="elasticsearch-helper.html" />
     
     
-    <link rel="prev" href="README.md" />
+    <link rel="prev" href="elasticsearch_groupby_date.html" />
     
 
     <style>
@@ -175,7 +175,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../elasticsearch/README.md">
+        <li class="chapter " data-level="1.3" data-path="README.md">
             
                 <span>
             
@@ -189,9 +189,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../elasticsearch/elasticsearch_groupby_date.html">
+        <li class="chapter " data-level="1.3.1" data-path="elasticsearch_groupby_date.html">
             
-                <a href="../elasticsearch/elasticsearch_groupby_date.html">
+                <a href="elasticsearch_groupby_date.html">
             
                     
                     Elasticsearch sum count group by 按时间区间统计金额与数量
@@ -202,9 +202,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../elasticsearch/elasticsearch_in_query.html">
+        <li class="chapter active" data-level="1.3.2" data-path="elasticsearch_in_query.html">
             
-                <a href="../elasticsearch/elasticsearch_in_query.html">
+                <a href="elasticsearch_in_query.html">
             
                     
                     Elasticsearch in 查询
@@ -215,9 +215,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../elasticsearch/elasticsearch-helper.html">
+        <li class="chapter " data-level="1.3.3" data-path="elasticsearch-helper.html">
             
-                <a href="../elasticsearch/elasticsearch-helper.html">
+                <a href="elasticsearch-helper.html">
             
                     
                     Elasticsearch 深度分页自动分区助手
@@ -228,9 +228,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../elasticsearch/elasticsearch_datetime.html">
+        <li class="chapter " data-level="1.3.4" data-path="elasticsearch_datetime.html">
             
-                <a href="../elasticsearch/elasticsearch_datetime.html">
+                <a href="elasticsearch_datetime.html">
             
                     
                     Elasticsearch LocaDateTime映射
@@ -241,9 +241,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../elasticsearch/elasticsearch_jmx_monitor.html">
+        <li class="chapter " data-level="1.3.5" data-path="elasticsearch_jmx_monitor.html">
             
-                <a href="../elasticsearch/elasticsearch_jmx_monitor.html">
+                <a href="elasticsearch_jmx_monitor.html">
             
                     
                     Elasticsearch JMX 监控
@@ -259,7 +259,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="README.md">
+        <li class="chapter " data-level="1.4" data-path="../java/README.md">
             
                 <span>
             
@@ -273,9 +273,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.4.1" data-path="pojo-helper.html">
+        <li class="chapter " data-level="1.4.1" data-path="../java/pojo-helper.html">
             
-                <a href="pojo-helper.html">
+                <a href="../java/pojo-helper.html">
             
                     
                     Pojo工具类
@@ -475,7 +475,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Pojo工具类</a>
+        <a href=".." >Elasticsearch in 查询</a>
     </h1>
 </div>
 
@@ -490,69 +490,29 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="pojo-helperhttpsgithubcomsnowthinkerpojo-helper">pojo-helper(<a href="https://github.com/snowThinker/pojo-helper" target="_blank">https://github.com/snowThinker/pojo-helper</a>)</h3>
-<p><a href="https://mvnrepository.com/artifact/io.github.snowthinker/mybatis-helper" target="_blank"><img src="https://img.shields.io/maven-central/v/io.github.snowthinker/mybatis-helper.svg?label=Maven%20Central" alt="Maven Central"></a>
-<a href="https://www.apache.org/licenses/LICENSE-2.0.html" target="_blank"><img src="https://img.shields.io/badge/license-Apache%202-4EB1BA.svg" alt="License"></a></p>
-<h2 id="&#x4E3B;&#x8981;&#x529F;&#x80FD;">&#x4E3B;&#x8981;&#x529F;&#x80FD;</h2>
-<ul>
-<li><strong>Java Bean&#x63A9;&#x7801;&#x652F;&#x6301;</strong>&#xFF1A; Mask or encrypt bean with annotation</li>
-<li><strong>Java Bean&#x7075;&#x6D3B;&#x8F6C;&#x6362;&#x7C7B;</strong>&#xFF1A; Rich reflection tools</li>
-</ul>
-<p>Usage:</p>
-<h5 id="1-add-maven-dependency">1. Add maven dependency</h5>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.github.snowthinker<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>pojo-helper<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+                                <h2 id="elasticsearch-in-&#x67E5;&#x8BE2;">Elasticsearch in &#x67E5;&#x8BE2;</h2>
+<h4 id="sql&#x6761;&#x4EF6;">SQL&#x6761;&#x4EF6;</h4>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">order</span>
+<span class="hljs-keyword">where</span> staus <span class="hljs-keyword">in</span> (<span class="hljs-string">&apos;01&apos;</span>, <span class="hljs-string">&apos;02&apos;</span>, <span class="hljs-string">&apos;03&apos;</span>)
 </code></pre>
-<h5 id="2-write-mask-or-encryption-bean-and-rewrite-tostring-method">2. Write mask or encryption bean and rewrite toString() method</h5>
-<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MaskBean</span> </span>{
-    <span class="hljs-keyword">private</span> String name;
-
-    <span class="hljs-meta">@Mask</span>(type=MaskType.MOBILE, format=<span class="hljs-string">&quot;#&quot;</span>)
-    <span class="hljs-keyword">private</span> String mobile;
-
-    <span class="hljs-meta">@Mask</span>(type=MaskType.IDCARD)
-    <span class="hljs-keyword">private</span> String idcard;
-
-    <span class="hljs-meta">@Encryption</span>(type=EncryptionType.AES)
-    <span class="hljs-keyword">private</span> String cardNumber;
-
-    <span class="hljs-meta">@Mask</span>(type=MaskType.ADDRESS)
-    <span class="hljs-keyword">private</span> String address;
-
-    <span class="hljs-keyword">private</span> Date birthday;
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> MaskUtils.toString(<span class="hljs-keyword">this</span>);
-    }
-    <span class="hljs-comment">//TODO getter and setters</span>
-}
-</code></pre>
-<h5 id="3-run-the-test-case">3. Run the test case</h5>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MaskUtilsTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TestCase</span> </span>{
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testMaskBean</span><span class="hljs-params">()</span> </span>{
-        MaskBean maskBean = <span class="hljs-keyword">new</span> MaskBean();
-        maskBean.setName(<span class="hljs-string">&quot;Andrew&quot;</span>);
-        maskBean.setMobile(<span class="hljs-string">&quot;12318638123&quot;</span>);
-        maskBean.setIdcard(<span class="hljs-string">&quot;123212196309222123&quot;</span>);
-        maskBean.setCardNumber(<span class="hljs-string">&quot;1238390056241234&quot;</span>);
-        maskBean.setAddress(<span class="hljs-string">&quot;2915 Canyon Lake Dr, Rapid City, SD 57702&quot;</span>);
-        maskBean.setBirthday(<span class="hljs-keyword">new</span> Date());
-        maskBean.setAge(<span class="hljs-number">17</span>);
-
-        AESEncryptor.encryptObject(maskBean);
-
-        System.out.printf(<span class="hljs-string">&quot;after mask and encrypt: %s\r\n&quot;</span>, maskBean);
+<h4 id="dsl-&#x67E5;&#x8BE2;">DSL &#x67E5;&#x8BE2;</h4>
+<pre><code class="lang-json">GET /idx_order/order/_search
+{
+    <span class="hljs-string">&quot;query&quot;</span>: {
+        <span class="hljs-string">&quot;bool&quot;</span>: {
+            <span class="hljs-string">&quot;terms&quot;</span>: {
+                <span class="hljs-string">&quot;status.keyword&quot;</span>: [
+                    <span class="hljs-string">&quot;01&quot;</span>, <span class="hljs-string">&quot;02&quot;</span>, <span class="hljs-string">&quot;03&quot;</span>
+                ]
+            }
+        }
     }
 }
 </code></pre>
-<h5 id="4output">4.Output:</h5>
-<pre><code>after mask and encrypt: MaskBean[name=Andrew, mobile=123####8123, idcard=1232121963****2123, cardNumber=jzvCqL2QEMQliI2Pvdx7Chi7uEURzsK8I7iejfobS7Q=, address=2915 Canyon Lake Dr, Rapid City, ****7702, birthday=Sat Apr 29 11:36:35 CST 2017, age=17
-</code></pre><footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-07-19 11:02:07 </span> </footer>
+<h4 id="java&#x67E5;&#x8BE2;">Java&#x67E5;&#x8BE2;</h4>
+<pre><code class="lang-java">QueryBuilder queryBuilder = QueryBuilders.termsQuery(<span class="hljs-string">&quot;status.keyword&quot;</span>, <span class="hljs-keyword">new</span> String[]{<span class="hljs-string">&quot;01&quot;</span>, <span class="hljs-string">&quot;02&quot;</span>, <span class="hljs-string">&quot;03&quot;</span>});
+</code></pre>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-07-18 09:52:03 </span> </footer>
                                 
                                 </section>
                             
@@ -579,12 +539,12 @@
 
             
                 
-                <a href="README.md" class="navigation navigation-prev " aria-label="Previous page: JAVA">
+                <a href="elasticsearch_groupby_date.html" class="navigation navigation-prev " aria-label="Previous page: Elasticsearch sum count group by 按时间区间统计金额与数量">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../" class="navigation navigation-next " aria-label="Next page: SpringBoot">
+                <a href="elasticsearch-helper.html" class="navigation navigation-next " aria-label="Next page: Elasticsearch 深度分页自动分区助手">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -595,7 +555,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pojo工具类","level":"1.4.1","depth":2,"next":{"title":"SpringBoot","level":"1.5","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"MyBatis 枚举支持","level":"1.5.1","depth":2,"path":"springboot/mybatis-helper.md","ref":"springboot/mybatis-helper.md","articles":[]},{"title":"SpringBoot 配置多个application.ptoperties文件.md","level":"1.5.2","depth":2,"path":"springboot/springboot_mutiple_application.md","ref":"springboot/springboot_mutiple_application.md","articles":[]}]},"previous":{"title":"JAVA","level":"1.4","depth":1,"path":"java/README.md","ref":"java/README.md","articles":[{"title":"Pojo工具类","level":"1.4.1","depth":2,"path":"java/pojo-helper.md","ref":"java/pojo-helper.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"java/pojo-helper.md","mtime":"2019-07-19T03:02:07.013Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-19T03:02:25.556Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Elasticsearch in 查询","level":"1.3.2","depth":2,"next":{"title":"Elasticsearch 深度分页自动分区助手","level":"1.3.3","depth":2,"path":"elasticsearch/elasticsearch-helper.md","ref":"elasticsearch/elasticsearch-helper.md","articles":[]},"previous":{"title":"Elasticsearch sum count group by 按时间区间统计金额与数量","level":"1.3.1","depth":2,"path":"elasticsearch/elasticsearch_groupby_date.md","ref":"elasticsearch/elasticsearch_groupby_date.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"elasticsearch/elasticsearch_in_query.md","mtime":"2019-07-18T01:52:03.555Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-19T03:02:25.556Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
