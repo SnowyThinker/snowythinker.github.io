@@ -490,185 +490,192 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="deploy-&#x5305;&#x5230;maven-&#x5B98;&#x65B9;&#x4ED3;&#x5E93;">deploy &#x5305;&#x5230;Maven &#x5B98;&#x65B9;&#x4ED3;&#x5E93;</h3>
-<p>1&#x3001;&#x521B;&#x5EFA;&#x8D26;&#x53F7;
-<a href="https://issues.sonatype.org/" target="_blank">https://issues.sonatype.org/</a></p>
-<p>2&#x3001;&#x63D0;&#x4EA4; Community Support - Open Source Project Repository Hosting &#x7533;&#x8BF7;&#xFF0C;&#x6B64;&#x5904;&#x5982;&#x679C;&#x6709;&#x57DF;&#x540D;&#x4E00;&#x5B9A;&#x7ED1;&#x5B9A;&#x57DF;&#x540D;&#xFF0C;&#x6CA1;&#x6709;&#x57DF;&#x540D;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x7528;github&#x6765;&#x6258;&#x7BA1;&#x4EE3;&#x7801; io.github.username pom.xml &#x4E2D;&#x7684; groupId&#x4E5F;&#x5F97;&#x6309;&#x8FD9;&#x79CD;&#x683C;&#x5F0F;&#x6765;</p>
-<p>3&#x3001;&#x914D;&#x7F6E;pom.xml &#x548C; settings.xml &#x6587;&#x4EF6;</p>
-<p>setting.xml</p>
-<pre><code>    &lt;server&gt;
-      &lt;id&gt;ossrh&lt;/id&gt;
-      &lt;username&gt;XXX&lt;/username&gt;
-      &lt;password&gt;XXX&lt;/password&gt;
-    &lt;/server&gt;
+                                <h1 id="deploy-&#x5305;&#x5230;maven-&#x5B98;&#x65B9;&#x4ED3;&#x5E93;">deploy &#x5305;&#x5230;Maven &#x5B98;&#x65B9;&#x4ED3;&#x5E93;</h1>
+<h2 id="1&#x3001;&#x521B;&#x5EFA;&#x8D26;&#x53F7;-httpsissuessonatypeorg">1&#x3001;&#x521B;&#x5EFA;&#x8D26;&#x53F7; <a href="https://issues.sonatype.org/" target="_blank">https://issues.sonatype.org/</a></h2>
+<h2 id="2&#x3001;&#x63D0;&#x4EA4;-community-support---open-source-project-repository-hosting-&#x7533;&#x8BF7;&#xFF0C;&#x6B64;&#x5904;&#x5982;&#x679C;&#x6709;&#x57DF;&#x540D;&#x4E00;&#x5B9A;&#x7ED1;&#x5B9A;&#x57DF;&#x540D;&#xFF0C;&#x6CA1;&#x6709;&#x57DF;&#x540D;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x7528;github&#x6765;&#x6258;&#x7BA1;&#x4EE3;&#x7801;-iogithubusername-pomxml-&#x4E2D;&#x7684;-groupid&#x4E5F;&#x5F97;&#x6309;&#x8FD9;&#x79CD;&#x683C;&#x5F0F;&#x6765;">2&#x3001;&#x63D0;&#x4EA4; Community Support - Open Source Project Repository Hosting &#x7533;&#x8BF7;&#xFF0C;&#x6B64;&#x5904;&#x5982;&#x679C;&#x6709;&#x57DF;&#x540D;&#x4E00;&#x5B9A;&#x7ED1;&#x5B9A;&#x57DF;&#x540D;&#xFF0C;&#x6CA1;&#x6709;&#x57DF;&#x540D;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x7528;github&#x6765;&#x6258;&#x7BA1;&#x4EE3;&#x7801; io.github.username pom.xml &#x4E2D;&#x7684; groupId&#x4E5F;&#x5F97;&#x6309;&#x8FD9;&#x79CD;&#x683C;&#x5F0F;&#x6765;</h2>
+<h2 id="3&#x3001;&#x914D;&#x7F6E;pomxml-&#x548C;-settingsxml-&#x6587;&#x4EF6;">3&#x3001;&#x914D;&#x7F6E;pom.xml &#x548C; settings.xml &#x6587;&#x4EF6;</h2>
+<p>vim setting.xml</p>
+<pre><code class="lang-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">server</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>ossrh<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>XXX<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>XXX<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">server</span>&gt;</span>
 
-      &lt;profile&gt;
-      &lt;id&gt;ossrh&lt;/id&gt;
-      &lt;activation&gt;
-        &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
-      &lt;/activation&gt;
-      &lt;properties&gt;
-        &lt;gpg.executable&gt;gpg&lt;/gpg.executable&gt;
-        &lt;gpg.passphrase&gt;XXX&lt;/gpg.passphrase&gt;
-      &lt;/properties&gt;
-    &lt;/profile&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>ossrh<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">activation</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">activeByDefault</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">activeByDefault</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">activation</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">gpg.executable</span>&gt;</span>gpg<span class="hljs-tag">&lt;/<span class="hljs-name">gpg.executable</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">gpg.passphrase</span>&gt;</span>XXX<span class="hljs-tag">&lt;/<span class="hljs-name">gpg.passphrase</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- windows&#x5E73;&#x53F0; &#x53EF;&#x7701;&#x7565; --&gt;</span>
+        <span class="hljs-comment">&lt;!--
+        &lt;gpg.executable&gt;/usr/local/bin/gpg&lt;/gpg.executable&gt;
+        --&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>
 
-    &lt;activeProfiles&gt;
-    &lt;activeProfile&gt;ossrh&lt;/activeProfile&gt;
-  &lt;/activeProfiles&gt;
-</code></pre><p>pom.xml</p>
-<pre><code>&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
-    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
-    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">activeProfiles</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">activeProfile</span>&gt;</span>ossrh<span class="hljs-tag">&lt;/<span class="hljs-name">activeProfile</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">activeProfiles</span>&gt;</span>
+</code></pre>
+<p>vim pom.xml</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+    <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span>
 
-    &lt;groupId&gt;io.github.snowthinker&lt;/groupId&gt;
-    &lt;artifactId&gt;config-helper&lt;/artifactId&gt;
-    &lt;version&gt;0.0.4-RELEASE&lt;/version&gt;
-    &lt;packaging&gt;jar&lt;/packaging&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.github.snowthinker<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>config-helper<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.4-RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>jar<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span>
 
-    &lt;name&gt;config-helper&lt;/name&gt;
-    &lt;url&gt;https://github.com/snowThinker/config-helper&lt;/url&gt;
-    &lt;description&gt;Simplify property file load&lt;/description&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>config-helper<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://github.com/snowThinker/config-helper<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span>Simplify property file load<span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span>
 
-    &lt;properties&gt;
-        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
-    &lt;/properties&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
 
-    &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
-            &lt;artifactId&gt;commons-configuration2&lt;/artifactId&gt;
-            &lt;version&gt;2.4&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
-            &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
-            &lt;version&gt;1.7.25&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;junit&lt;/groupId&gt;
-            &lt;artifactId&gt;junit&lt;/artifactId&gt;
-            &lt;version&gt;4.12&lt;/version&gt;
-            &lt;scope&gt;test&lt;/scope&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.commons<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>commons-configuration2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.slf4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>slf4j-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.7.25<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.12<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
 
-    &lt;build&gt;
-        &lt;plugins&gt;
-            &lt;plugin&gt;
-                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
-                &lt;version&gt;2.5&lt;/version&gt;
-                &lt;configuration&gt;
-                    &lt;source&gt;1.8&lt;/source&gt;
-                    &lt;target&gt;1.8&lt;/target&gt;
-                    &lt;encoding&gt;UTF-8&lt;/encoding&gt;
-                &lt;/configuration&gt;
-            &lt;/plugin&gt;
-            &lt;plugin&gt;
-                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-                &lt;artifactId&gt;maven-source-plugin&lt;/artifactId&gt;
-                &lt;version&gt;2.2.1&lt;/version&gt;
-                &lt;executions&gt;
-                    &lt;execution&gt;
-                        &lt;id&gt;attach-sources&lt;/id&gt;
-                        &lt;goals&gt;
-                            &lt;goal&gt;jar-no-fork&lt;/goal&gt;
-                        &lt;/goals&gt;
-                    &lt;/execution&gt;
-                &lt;/executions&gt;
-            &lt;/plugin&gt;
-            &lt;plugin&gt;
-                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-                &lt;artifactId&gt;maven-javadoc-plugin&lt;/artifactId&gt;
-                &lt;version&gt;2.9.1&lt;/version&gt;
-                &lt;executions&gt;
-                    &lt;execution&gt;
-                        &lt;id&gt;attach-javadocs&lt;/id&gt;
-                        &lt;goals&gt;
-                            &lt;goal&gt;jar&lt;/goal&gt;
-                        &lt;/goals&gt;
-                    &lt;/execution&gt;
-                &lt;/executions&gt;
-            &lt;/plugin&gt;
-            &lt;plugin&gt;
-                &lt;groupId&gt;org.sonatype.plugins&lt;/groupId&gt;
-                &lt;artifactId&gt;nexus-staging-maven-plugin&lt;/artifactId&gt;
-                &lt;version&gt;1.6.7&lt;/version&gt;
-                &lt;extensions&gt;true&lt;/extensions&gt;
-                &lt;executions&gt;
-                    &lt;execution&gt;
-                       &lt;id&gt;default-deploy&lt;/id&gt;
-                       &lt;phase&gt;deploy&lt;/phase&gt;
-                       &lt;goals&gt;
-                          &lt;goal&gt;deploy&lt;/goal&gt;
-                       &lt;/goals&gt;
-                    &lt;/execution&gt;
-                 &lt;/executions&gt;
-                &lt;configuration&gt;
-                    &lt;serverId&gt;ossrh&lt;/serverId&gt;
-                    &lt;nexusUrl&gt;https://oss.sonatype.org/&lt;/nexusUrl&gt;
-                    &lt;autoReleaseAfterClose&gt;true&lt;/autoReleaseAfterClose&gt;
-                &lt;/configuration&gt;
-            &lt;/plugin&gt;
-            &lt;plugin&gt;
-                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-                &lt;artifactId&gt;maven-gpg-plugin&lt;/artifactId&gt;
-                &lt;version&gt;1.6&lt;/version&gt;
-                &lt;executions&gt;
-                    &lt;execution&gt;
-                        &lt;id&gt;sign-artifacts&lt;/id&gt;
-                        &lt;phase&gt;verify&lt;/phase&gt;
-                        &lt;goals&gt;
-                            &lt;goal&gt;sign&lt;/goal&gt;
-                        &lt;/goals&gt;
-                    &lt;/execution&gt;
-                &lt;/executions&gt;
-            &lt;/plugin&gt;
-        &lt;/plugins&gt;
-    &lt;/build&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">source</span>&gt;</span>1.8<span class="hljs-tag">&lt;/<span class="hljs-name">source</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">target</span>&gt;</span>1.8<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">encoding</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">encoding</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-source-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.2.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>attach-sources<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>jar-no-fork<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-javadoc-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>attach-javadocs<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>jar<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.sonatype.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>nexus-staging-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.6.7<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">extensions</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">extensions</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+                       <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>default-deploy<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+                       <span class="hljs-tag">&lt;<span class="hljs-name">phase</span>&gt;</span>deploy<span class="hljs-tag">&lt;/<span class="hljs-name">phase</span>&gt;</span>
+                       <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+                          <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>deploy<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+                       <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+                 <span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">serverId</span>&gt;</span>ossrh<span class="hljs-tag">&lt;/<span class="hljs-name">serverId</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">nexusUrl</span>&gt;</span>https://oss.sonatype.org/<span class="hljs-tag">&lt;/<span class="hljs-name">nexusUrl</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">autoReleaseAfterClose</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">autoReleaseAfterClose</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-gpg-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.6<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>sign-artifacts<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">phase</span>&gt;</span>verify<span class="hljs-tag">&lt;/<span class="hljs-name">phase</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>sign<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
 
-    &lt;licenses&gt;
-        &lt;license&gt;
-            &lt;name&gt;Apache License, Version 2.0&lt;/name&gt;
-            &lt;url&gt;http://www.apache.org/licenses/LICENSE-2.0.txt&lt;/url&gt;
-            &lt;distribution&gt;repo&lt;/distribution&gt;
-        &lt;/license&gt;
-    &lt;/licenses&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">licenses</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">license</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>Apache License, Version 2.0<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://www.apache.org/licenses/LICENSE-2.0.txt<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">distribution</span>&gt;</span>repo<span class="hljs-tag">&lt;/<span class="hljs-name">distribution</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">license</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">licenses</span>&gt;</span>
 
-    &lt;scm&gt;
-        &lt;url&gt;https://github.com/snowThinker/config-helper&lt;/url&gt;
-    &lt;/scm&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">scm</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://github.com/snowThinker/config-helper<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">scm</span>&gt;</span>
 
-    &lt;developers&gt;
-        &lt;developer&gt;
-          &lt;name&gt;Andrew Wong&lt;/name&gt;
-          &lt;email&gt;wj.andrew@yahoo.com&lt;/email&gt;
-          &lt;organization&gt;Sonatype&lt;/organization&gt;
-          &lt;organizationUrl&gt;http://www.sonatype.com&lt;/organizationUrl&gt;
-        &lt;/developer&gt;
-    &lt;/developers&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">developers</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">developer</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>Andrew Wong<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">email</span>&gt;</span>wj.andrew@yahoo.com<span class="hljs-tag">&lt;/<span class="hljs-name">email</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">organization</span>&gt;</span>Sonatype<span class="hljs-tag">&lt;/<span class="hljs-name">organization</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">organizationUrl</span>&gt;</span>http://www.sonatype.com<span class="hljs-tag">&lt;/<span class="hljs-name">organizationUrl</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">developer</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">developers</span>&gt;</span>
 
-    &lt;distributionManagement&gt;
-        &lt;snapshotRepository&gt;
-            &lt;id&gt;ossrh&lt;/id&gt;
-            &lt;url&gt;https://oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
-        &lt;/snapshotRepository&gt;
-        &lt;repository&gt;
-            &lt;id&gt;ossrh&lt;/id&gt;
-            &lt;url&gt;https://oss.sonatype.org/service/local/staging/deploy/maven2/&lt;/url&gt;
-        &lt;/repository&gt;
-    &lt;/distributionManagement&gt;
-&lt;/project&gt;
-</code></pre><p>4&#x3001;&#x5B89;&#x88C5;gpg4win &#x5E76;&#x914D;&#x7F6E;&#x8BC1;&#x4E66;&#x4FE1;&#x606F;
-&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#xFF1A;<a href="https://www.gpg4win.org/download.html" target="_blank">https://www.gpg4win.org/download.html</a> </p>
-<pre><code>gpg --gen-key
-gpg --keyserver hkp://keyserver.ubuntu.com:11371 --send-keys CF21873A  #&#x4E0A;&#x4F20;&#x5230;&#x670D;&#x52A1;&#x5668;
-gpg --keyserver hkp://keyserver.ubuntu.com:11371 --recv-keys  CF21873A #&#x67E5;&#x770B;&#x662F;&#x5426;&#x4E0A;&#x4F20;&#x6574;&#x4E2A;
-</code></pre><p>5&#x3001;&#x6267;&#x884C;&#x90E8;&#x7F72;
-mvn clean deploy</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-07-16 11:12:37 </span> </footer>
+    <span class="hljs-tag">&lt;<span class="hljs-name">distributionManagement</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">snapshotRepository</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>ossrh<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://oss.sonatype.org/content/repositories/snapshots<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">snapshotRepository</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">repository</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>ossrh<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://oss.sonatype.org/service/local/staging/deploy/maven2/<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">repository</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">distributionManagement</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
+</code></pre>
+<h2 id="4&#x3001;&#x5B89;&#x88C5;gpg4win-&#x5E76;&#x914D;&#x7F6E;&#x8BC1;&#x4E66;&#x4FE1;&#x606F;">4&#x3001;&#x5B89;&#x88C5;gpg4win &#x5E76;&#x914D;&#x7F6E;&#x8BC1;&#x4E66;&#x4FE1;&#x606F;</h2>
+<p>&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#xFF1A;<a href="https://www.gpg4win.org/download.html" target="_blank">https://www.gpg4win.org/download.html</a> </p>
+<pre><code class="lang-sh">gpg --gen-key
+gpg --keyserver hkp://keyserver.ubuntu.com:11371 --send-keys CF21873A  <span class="hljs-comment">#&#x4E0A;&#x4F20;&#x5230;&#x670D;&#x52A1;&#x5668;</span>
+gpg --keyserver hkp://keyserver.ubuntu.com:11371 --recv-keys  CF21873A <span class="hljs-comment">#&#x67E5;&#x770B;&#x662F;&#x5426;&#x4E0A;&#x4F20;&#x6574;&#x4E2A;</span>
+</code></pre>
+<h2 id="5&#x3001;&#x6267;&#x884C;&#x90E8;&#x7F72;">5&#x3001;&#x6267;&#x884C;&#x90E8;&#x7F72;</h2>
+<pre><code class="lang-sh">mvn clean deploy
+</code></pre>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-07-20 21:22:47 </span> </footer>
                                 
                                 </section>
                             
@@ -711,7 +718,7 @@ mvn clean deploy</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Maven部署到官方仓库","level":"1.6.1","depth":2,"next":{"title":"Maven checkstyle配置","level":"1.6.2","depth":2,"path":"maven/maven_checkstyle.md","ref":"maven/maven_checkstyle.md","articles":[]},"previous":{"title":"Maven","level":"1.6","depth":1,"path":"maven/README.md","ref":"maven/README.md","articles":[{"title":"Maven部署到官方仓库","level":"1.6.1","depth":2,"path":"maven/maven_official_oss.md","ref":"maven/maven_official_oss.md","articles":[]},{"title":"Maven checkstyle配置","level":"1.6.2","depth":2,"path":"maven/maven_checkstyle.md","ref":"maven/maven_checkstyle.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"maven/maven_official_oss.md","mtime":"2019-07-16T03:12:37.060Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-19T03:02:25.556Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Maven部署到官方仓库","level":"1.6.1","depth":2,"next":{"title":"Maven checkstyle配置","level":"1.6.2","depth":2,"path":"maven/maven_checkstyle.md","ref":"maven/maven_checkstyle.md","articles":[]},"previous":{"title":"Maven","level":"1.6","depth":1,"path":"maven/README.md","ref":"maven/README.md","articles":[{"title":"Maven部署到官方仓库","level":"1.6.1","depth":2,"path":"maven/maven_official_oss.md","ref":"maven/maven_official_oss.md","articles":[]},{"title":"Maven checkstyle配置","level":"1.6.2","depth":2,"path":"maven/maven_checkstyle.md","ref":"maven/maven_checkstyle.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"maven/maven_official_oss.md","mtime":"2019-07-20T13:22:47.135Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-21T12:54:55.258Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
