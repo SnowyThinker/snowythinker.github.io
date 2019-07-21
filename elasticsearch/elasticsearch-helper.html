@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Elasticsearch 深度分页自动分区助手 · SnowThinker资源库</title>
+        <title>Elasticsearch 助手 · SnowThinker资源库</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -220,7 +220,7 @@
                 <a href="elasticsearch-helper.html">
             
                     
-                    Elasticsearch 深度分页自动分区助手
+                    Elasticsearch 助手
             
                 </a>
             
@@ -475,7 +475,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Elasticsearch 深度分页自动分区助手</a>
+        <a href=".." >Elasticsearch 助手</a>
     </h1>
 </div>
 
@@ -491,21 +491,28 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="elasticsearch-helper-es&#x52A9;&#x624B;">elasticsearch-helper ES&#x52A9;&#x624B;</h1>
-<h3 id="&#x6DFB;&#x52A0;pom&#x4F9D;&#x8D56;">&#x6DFB;&#x52A0;pom&#x4F9D;&#x8D56;</h3>
+<h2 id="&#x4E3B;&#x8981;&#x529F;&#x80FD;">&#x4E3B;&#x8981;&#x529F;&#x80FD;</h2>
+<ul>
+<li><strong>ElasticsearchTemplate&#x6DF1;&#x5EA6;&#x5206;&#x9875;&#x652F;&#x6301;</strong>&#xFF1A;&#x91CD;&#x5199;ElasticsearchTemplate&#x652F;&#x6301; search after &#x6DF1;&#x5EA6;&#x5206;&#x9875;</li>
+<li><strong>&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x5206;&#x533A;&#x53CA;&#x81EA;&#x52A8;&#x5206;&#x533A;&#x6307;&#x5411;</strong>&#xFF1A;&#x53EF;&#x6309;&#x6708;&#x5206;&#x533A;&#x7D22;&#x5F15;&#xFF0C;&#x6BCF;&#x6708;&#x521B;&#x5EFA;&#x7D22;&#x5F15;&#xFF0C;&#x81EA;&#x52A8;&#x522B;&#x540D;&#x6307;&#x5411;&#x529F;&#x80FD;</li>
+<li><strong>Elasticsearch &#x8BFB;&#x5199;&#x5206;&#x79BB;</strong>&#xFF1A;&#x8BFB;&#x5199;&#x5206;&#x79BB;, &#x8BFB;&#x64CD;&#x4F5C;&#x6240;&#x6709;&#x7D22;&#x5F15;&#x5206;&#x533A;&#xFF0C;&#x5199;&#x53EA;&#x64CD;&#x4F5C;&#x5F53;&#x6708;&#x7D22;&#x5F15;</li>
+</ul>
+<h2 id="&#x5982;&#x4F55;&#x4F7F;&#x7528;">&#x5982;&#x4F55;&#x4F7F;&#x7528;</h2>
+<h3 id="1&#x3001;&#x6DFB;&#x52A0;pom&#x4F9D;&#x8D56;">1&#x3001;&#x6DFB;&#x52A0;pom&#x4F9D;&#x8D56;</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.github.snowthinker<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>elasticsearch-helper<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
 </code></pre>
-<h4 id="&#x521D;&#x59CB;&#x5316;customelasticsearchtemplate">&#x521D;&#x59CB;&#x5316;CustomElasticsearchTemplate</h4>
+<h3 id="2&#x3001;&#x521D;&#x59CB;&#x5316;customelasticsearchtemplate">2&#x3001;&#x521D;&#x59CB;&#x5316;CustomElasticsearchTemplate</h3>
 <pre><code class="lang-java"><span class="hljs-meta">@Bean</span>
 <span class="hljs-function"><span class="hljs-keyword">public</span> CustomElasticsearchTemplate <span class="hljs-title">customElasticsearchTemplate</span><span class="hljs-params">(Client client)</span> </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CustomElasticsearchTemplate(client, <span class="hljs-keyword">new</span> CustomDefaultResultMapper());
 }
 </code></pre>
-<h4 id="javabean&#x7F16;&#x5199;">JavaBean&#x7F16;&#x5199;</h4>
-<pre><code class="lang-java"><span class="hljs-meta">@Data</span>    
+<h3 id="3&#x3001;javabean&#x7F16;&#x5199;">3&#x3001;JavaBean&#x7F16;&#x5199;</h3>
+<pre><code class="lang-java"><span class="hljs-meta">@Data</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Item</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>{    
     <span class="hljs-meta">@Id</span>
     <span class="hljs-keyword">private</span> String id;
@@ -517,9 +524,8 @@
     <span class="hljs-keyword">private</span> String sku;
 }
 </code></pre>
-<h4 id="&#x6DF1;&#x5EA6;&#x5206;&#x9875;">&#x6DF1;&#x5EA6;&#x5206;&#x9875;</h4>
-<pre><code class="lang-java">
-<span class="hljs-keyword">int</span> pageSize = <span class="hljs-number">10</span>;
+<h3 id="4&#x3001;&#x6DF1;&#x5EA6;&#x5206;&#x9875;">4&#x3001;&#x6DF1;&#x5EA6;&#x5206;&#x9875;</h3>
+<pre><code class="lang-java"><span class="hljs-keyword">int</span> pageSize = <span class="hljs-number">10</span>;
 <span class="hljs-keyword">int</span> currentPage = <span class="hljs-number">1</span>;
 
 <span class="hljs-comment">// &#x6DF1;&#x5EA6;&#x5206;&#x9875;</span>
@@ -539,10 +545,10 @@ Page&lt;Item&gt; page = customElasticsearchTemplate.searchDeep(queryBuilder, pag
 List&lt;Item&gt; dataList = page.get().collect(Collectors.toList());
 System.out.println(dataList);
 </code></pre>
-<h4 id="&#x6253;&#x5370;dsl&#x65E5;&#x5FD7;">&#x6253;&#x5370;DSL&#x65E5;&#x5FD7;</h4>
+<h3 id="5&#x3001;&#x6253;&#x5370;dsl&#x65E5;&#x5FD7;">5&#x3001;&#x6253;&#x5370;DSL&#x65E5;&#x5FD7;</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;org.springframework.data.elasticsearch.core.QUERY&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;DEBUG&quot;</span>/&gt;</span>
 </code></pre>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-07-21 20:54:21 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-07-21 21:30:44 </span> </footer>
                                 
                                 </section>
                             
@@ -585,7 +591,7 @@ System.out.println(dataList);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Elasticsearch 深度分页自动分区助手","level":"1.3.3","depth":2,"next":{"title":"Elasticsearch LocaDateTime映射","level":"1.3.4","depth":2,"path":"elasticsearch/elasticsearch_datetime.md","ref":"elasticsearch/elasticsearch_datetime.md","articles":[]},"previous":{"title":"Elasticsearch in 查询","level":"1.3.2","depth":2,"path":"elasticsearch/elasticsearch_in_query.md","ref":"elasticsearch/elasticsearch_in_query.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"elasticsearch/elasticsearch-helper.md","mtime":"2019-07-21T12:54:21.062Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-21T12:54:55.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Elasticsearch 助手","level":"1.3.3","depth":2,"next":{"title":"Elasticsearch LocaDateTime映射","level":"1.3.4","depth":2,"path":"elasticsearch/elasticsearch_datetime.md","ref":"elasticsearch/elasticsearch_datetime.md","articles":[]},"previous":{"title":"Elasticsearch in 查询","level":"1.3.2","depth":2,"path":"elasticsearch/elasticsearch_in_query.md","ref":"elasticsearch/elasticsearch_in_query.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"elasticsearch/elasticsearch-helper.md","mtime":"2019-07-21T13:30:44.956Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-21T13:31:00.448Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
