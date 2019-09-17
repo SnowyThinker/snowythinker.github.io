@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Elasticsearch sum count group by 按时间区间统计金额与数量 · SnowThinker资源库</title>
+        <title>Flume集体日志并发送到Kafka · SnowThinker资源库</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -74,7 +74,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="elasticsearch_in_query.html" />
+    <link rel="next" href="../redis/README.md" />
     
     
     <link rel="prev" href="README.md" />
@@ -175,7 +175,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="README.md">
+        <li class="chapter " data-level="1.3" data-path="../elasticsearch/README.md">
             
                 <span>
             
@@ -189,9 +189,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="elasticsearch_groupby_date.html">
+        <li class="chapter " data-level="1.3.1" data-path="../elasticsearch/elasticsearch_groupby_date.html">
             
-                <a href="elasticsearch_groupby_date.html">
+                <a href="../elasticsearch/elasticsearch_groupby_date.html">
             
                     
                     Elasticsearch sum count group by 按时间区间统计金额与数量
@@ -202,9 +202,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="elasticsearch_in_query.html">
+        <li class="chapter " data-level="1.3.2" data-path="../elasticsearch/elasticsearch_in_query.html">
             
-                <a href="elasticsearch_in_query.html">
+                <a href="../elasticsearch/elasticsearch_in_query.html">
             
                     
                     Elasticsearch in 查询
@@ -215,9 +215,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="elasticsearch-helper.html">
+        <li class="chapter " data-level="1.3.3" data-path="../elasticsearch/elasticsearch-helper.html">
             
-                <a href="elasticsearch-helper.html">
+                <a href="../elasticsearch/elasticsearch-helper.html">
             
                     
                     Elasticsearch 助手
@@ -228,9 +228,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="elasticsearch_datetime.html">
+        <li class="chapter " data-level="1.3.4" data-path="../elasticsearch/elasticsearch_datetime.html">
             
-                <a href="elasticsearch_datetime.html">
+                <a href="../elasticsearch/elasticsearch_datetime.html">
             
                     
                     Elasticsearch LocaDateTime映射
@@ -241,9 +241,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="elasticsearch_jmx_monitor.html">
+        <li class="chapter " data-level="1.3.5" data-path="../elasticsearch/elasticsearch_jmx_monitor.html">
             
-                <a href="elasticsearch_jmx_monitor.html">
+                <a href="../elasticsearch/elasticsearch_jmx_monitor.html">
             
                     
                     Elasticsearch JMX 监控
@@ -381,7 +381,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="../flume/README.md">
+        <li class="chapter " data-level="1.7" data-path="README.md">
             
                 <span>
             
@@ -395,9 +395,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="../flume/flume_logfile2kafka.html">
+        <li class="chapter active" data-level="1.7.1" data-path="flume_logfile2kafka.html">
             
-                <a href="../flume/flume_logfile2kafka.html">
+                <a href="flume_logfile2kafka.html">
             
                     
                     Flume集体日志并发送到Kafka
@@ -539,7 +539,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Elasticsearch sum count group by 按时间区间统计金额与数量</a>
+        <a href=".." >Flume集体日志并发送到Kafka</a>
     </h1>
 </div>
 
@@ -554,47 +554,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="elasticsearch-sum-count-group-by-&#x6309;&#x65F6;&#x95F4;&#x533A;&#x95F4;&#x7EDF;&#x8BA1;&#x91D1;&#x989D;&#x4E0E;&#x6570;&#x91CF;">Elasticsearch sum count group by &#x6309;&#x65F6;&#x95F4;&#x533A;&#x95F4;&#x7EDF;&#x8BA1;&#x91D1;&#x989D;&#x4E0E;&#x6570;&#x91CF;</h2>
-<pre><code class="lang-sql"><span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(<span class="hljs-keyword">id</span>) totalCount, <span class="hljs-keyword">sum</span>(orderAmount) totalAmount, to_chat(createTime, <span class="hljs-string">&apos;yyyyMMdd&apos;</span>) <span class="hljs-keyword">day</span>
-<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> to_chat(createTime, <span class="hljs-string">&apos;yyyyMMdd&apos;</span>)
+                                <h1 id="flume-&#x6536;&#x96C6;&#x65E5;&#x5FD7;&#x53D1;&#x9001;&#x5230;kafka">Flume &#x6536;&#x96C6;&#x65E5;&#x5FD7;&#x53D1;&#x9001;&#x5230;Kafka</h1>
+<h4 id="1&#x3001;&#x4E0B;&#x8F7D;-apache-flume">1&#x3001;&#x4E0B;&#x8F7D; apache flume</h4>
+<h4 id="2&#x3001;&#x521B;&#x5EFA;&#x914D;&#x7F6E;&#x6587;&#x4EF6;">2&#x3001;&#x521B;&#x5EFA;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h4>
+<pre><code class="lang-shell">touch logfile2kafka.properties
 </code></pre>
-<h4 id="java-&#x67E5;&#x8BE2;">Java &#x67E5;&#x8BE2;</h4>
-<pre><code class="lang-java">DateHistogramAggregationBuilder dateHistAgg = AggregationBuilders.dateHistogram(&quot;day&quot;).field(&quot;createTime&quot;).dateHistogramInterval(DateHistogramInterval.DAY);
+<pre><code class="lang-properties">Flume2KafkaAgent.sources=mysource
+Flume2KafkaAgent.channels=mychannel
+Flume2KafkaAgent.sinks=mysink
 
-ValueCountAggregationBuilder countAgg = AggregationBuilders.count(&quot;totalCount&quot;).field(&quot;id&quot;);
-SumAggregationBuilder sumAgg = AggregationBuilders.sum(&quot;totalAmount&quot;).field(&quot;orderAmount&quot;);
+Flume2KafkaAgent.sources.mysource.type=exec
+Flume2KafkaAgent.sources.mysource.channels=mychannel
+Flume2KafkaAgent.sources.mysource.command=tail -f /data/logs.log
 
-# &#x6DFB;&#x52A0; count &#x5B50;&#x805A;&#x5408;
-dateHistAgg.subAggregation(countAgg);
-# &#x6DFB;&#x52A0; sum &#x5B50;&#x805A;&#x5408;
-dateHistAgg.subAggregation(sumAgg);
+Flume2KafkaAgent.sinks.mysink.channel=mychannel
+Flume2KafkaAgent.sinks.mysink.type=org.apache.flume.sink.kafka.KafkaSink
+Flume2KafkaAgent.sinks.mysink.kafka.bootstrap.servers=master:9092,slave1:9092
+Flume2KafkaAgent.sinks.mysink.kafka.topic=log_topic
+Flume2KafkaAgent.sinks.mysink.kafka.batchSize=20
+Flume2KafkaAgent.sinks.mysink.kafka.producer.requiredAcks=1
 
-SeqrchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(queryBuilder).addAggregation(dateHistAgg).build();
-
-List&lt;InternalDateHistogram&gt; result = elasticsearchTemplate.query(searchQuery, new ResultExtractor() {
-
-    public Object extract(SearchResponse response) {
-        return response.getAggregations().asList();
-    }
-});
-
-if(null == result || result.isEmpty()) {
-    return new ArrayList&lt;&gt;();
-}
-
-InternalDateHistogram dateHistogram = result.get(0);
-List&lt;Bucket&gt; bucketList = dateHistogram.getBuckets();
-
-bucketList.forEach(action -&gt; {
-    Aggregations aggregation = action.getAggregations();
-
-    org.joda.time.DateTime date = (org.joda.time.DateTime)action.getKey();
-
-    InternalSum totalAmount = aggregation.get(&quot;totalAmount&quot;);
-    InternalValueCount totalCount = aggregation.get(&quot;totalCount&quot;);
-});
+Flume2KafkaAgent.channels.mychannel.type=memory
+Flume2KafkaAgent.channels.mychannel.capacity=30000
+Flume2KafkaAgent.channels.mychannel.transactionCapacity=100
 </code></pre>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-07-18 09:50:44 </span> </footer>
+<h4 id="3&#x3001;&#x542F;&#x52A8;&#x6536;&#x96C6;&#x8FDB;&#x7A0B;">3&#x3001;&#x542F;&#x52A8;&#x6536;&#x96C6;&#x8FDB;&#x7A0B;</h4>
+<pre><code class="lang-shell"># &#x6B64;&#x5904; -n &#x540E;&#x7684;Flume2KafkaAgent &#x5FC5;&#x9700;&#x548C;properties&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x524D;&#x7F00;&#x4E00;&#x6837;&#x624D;&#x80FD;&#x751F;&#x6548;
+nohup ../bin/flume-ng agent -c conf -f conf/flume2kafka.properties -n Flume2KafkaAgent -Dflume.root.logger=INFO,console &gt; /dev/null &amp;
+</code></pre>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-09-13 10:18:22 </span> </footer>
                                 
                                 </section>
                             
@@ -621,12 +609,12 @@ bucketList.forEach(action -&gt; {
 
             
                 
-                <a href="README.md" class="navigation navigation-prev " aria-label="Previous page: Elasticsearch">
+                <a href="README.md" class="navigation navigation-prev " aria-label="Previous page: Flume">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="elasticsearch_in_query.html" class="navigation navigation-next " aria-label="Next page: Elasticsearch in 查询">
+                <a href="../redis/README.md" class="navigation navigation-next " aria-label="Next page: Redis">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -637,7 +625,7 @@ bucketList.forEach(action -&gt; {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Elasticsearch sum count group by 按时间区间统计金额与数量","level":"1.3.1","depth":2,"next":{"title":"Elasticsearch in 查询","level":"1.3.2","depth":2,"path":"elasticsearch/elasticsearch_in_query.md","ref":"elasticsearch/elasticsearch_in_query.md","articles":[]},"previous":{"title":"Elasticsearch","level":"1.3","depth":1,"path":"elasticsearch/README.md","ref":"elasticsearch/README.md","articles":[{"title":"Elasticsearch sum count group by 按时间区间统计金额与数量","level":"1.3.1","depth":2,"path":"elasticsearch/elasticsearch_groupby_date.md","ref":"elasticsearch/elasticsearch_groupby_date.md","articles":[]},{"title":"Elasticsearch in 查询","level":"1.3.2","depth":2,"path":"elasticsearch/elasticsearch_in_query.md","ref":"elasticsearch/elasticsearch_in_query.md","articles":[]},{"title":"Elasticsearch 助手","level":"1.3.3","depth":2,"path":"elasticsearch/elasticsearch-helper.md","ref":"elasticsearch//elasticsearch-helper.md","articles":[]},{"title":"Elasticsearch LocaDateTime映射","level":"1.3.4","depth":2,"path":"elasticsearch/elasticsearch_datetime.md","ref":"elasticsearch/elasticsearch_datetime.md","articles":[]},{"title":"Elasticsearch JMX 监控","level":"1.3.5","depth":2,"path":"elasticsearch/elasticsearch_jmx_monitor.md","ref":"elasticsearch/elasticsearch_jmx_monitor.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"elasticsearch/elasticsearch_groupby_date.md","mtime":"2019-07-18T01:50:44.051Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-17T06:47:05.208Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Flume集体日志并发送到Kafka","level":"1.7.1","depth":2,"next":{"title":"Redis","level":"1.8","depth":1,"path":"redis/README.md","ref":"redis/README.md","articles":[{"title":"Redis大Key与大Value分析","level":"1.8.1","depth":2,"path":"redis/redis_memory_analyse.md","ref":"redis/redis_memory_analyse.md","articles":[]}]},"previous":{"title":"Flume","level":"1.7","depth":1,"path":"flume/README.md","ref":"flume/README.md","articles":[{"title":"Flume集体日志并发送到Kafka","level":"1.7.1","depth":2,"path":"flume/flume_logfile2kafka.md","ref":"flume/flume_logfile2kafka.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"flume/flume_logfile2kafka.md","mtime":"2019-09-13T02:18:22.116Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-17T06:47:05.208Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
