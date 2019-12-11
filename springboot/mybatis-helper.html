@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>MyBatis 枚举支持 · SnowThinker资源库</title>
+        <title>MyBatis 枚举支持 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -247,6 +247,19 @@
             
                     
                     Elasticsearch JMX 监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../elasticsearch/elasticsearch_update_by_query.html">
+            
+                <a href="../elasticsearch/elasticsearch_update_by_query.html">
+            
+                    
+                    Elasticsearch 条件更新
             
                 </a>
             
@@ -554,8 +567,48 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>404: Not Found</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-09-17 14:50:45 </span> </footer>
+                                <h3 id="mybatis-helperhttpsgithubcomsnowthinkermybatis-helper">mybatis-helper(<a href="https://github.com/snowThinker/mybatis-helper" target="_blank">https://github.com/snowThinker/mybatis-helper</a>)</h3>
+<p><a href="https://mvnrepository.com/artifact/io.github.snowthinker/mybatis-helper" target="_blank"><img src="https://img.shields.io/maven-central/v/io.github.snowthinker/mybatis-helper.svg?label=Maven%20Central" alt="Maven Central"></a>
+<a href="https://www.apache.org/licenses/LICENSE-2.0.html" target="_blank"><img src="https://img.shields.io/badge/license-Apache%202-4EB1BA.svg" alt="License"></a></p>
+<h2 id="&#x4E3B;&#x8981;&#x529F;&#x80FD;">&#x4E3B;&#x8981;&#x529F;&#x80FD;</h2>
+<ul>
+<li><strong>MyBatis&#x679A;&#x4E3E;&#x652F;&#x6301;</strong>&#xFF1A;&#x652F;&#x6301;&#x679A;&#x4E3E;&#x5199;&#x5165;/&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x5E93;</li>
+<li><strong>&#x52A8;&#x6001;&#x83B7;&#x53D6;mapper&#x65B9;&#x6CD5;&#x7684;SQL&#x8BED;&#x53E5;</strong>&#xFF1A;&#x53EF;&#x6839;&#x636E;&#x52A8;&#x6001;&#x53C2;&#x6570;&#x83B7;&#x53D6; MyBatis &#x683C;&#x5F0F;&#x5316;&#x597D;&#x540E;&#x5E26;&#x53C2;&#x6570;&#x7684;SQL</li>
+</ul>
+<h4 id="&#x5982;&#x4F55;&#x4F7F;&#x7528;">&#x5982;&#x4F55;&#x4F7F;&#x7528;</h4>
+<p>pom &#x5F15;&#x5165;jar&#x5305;</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;io.github.snowthinker&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis-helper&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><p>&#x7F16;&#x5199;&#x679A;&#x4E3E;&#x7C7B;&#x5B9E;&#x73B0; MyBatisEnum &#x7C7B;</p>
+<pre><code>public enum StockMarket implements MyBatisEnum&lt;StockMarket, Integer&gt;{
+
+    US,
+    HK,
+    CN;
+
+    @Override
+    public Integer getValue() {
+        return this.ordinal();
+    }
+}
+</code></pre><h4 id="&#x5B57;&#x6BB5;&#x679A;&#x4E3E;&#x652F;&#x6301;">&#x5B57;&#x6BB5;&#x679A;&#x4E3E;&#x652F;&#x6301;</h4>
+<p>mybatis.xml &#x6DFB;&#x52A0;typeHandler</p>
+<pre><code>&lt;typeHandlers&gt;
+    &lt;typeHandler handler=&quot;io.github.snowthinker.mh.EnumTypeHandler&quot; javaType=&quot;io.github.snowthinkder.mh.test.UserStatus&quot;/&gt;
+&lt;/typeHandlers&gt;
+</code></pre><h4 id="&#x83B7;&#x53D6;-mapperxml-&#x6587;&#x4EF6;&#x65B9;&#x6CD5;-sql&#x8BED;&#x53E5;">&#x83B7;&#x53D6; mapper.xml &#x6587;&#x4EF6;&#x65B9;&#x6CD5; SQL&#x8BED;&#x53E5;</h4>
+<pre><code>String sql = MybatisSqlHelper.getMapperSql(&quot;oi.github.snowthinker.mapper.UserMapper&quot;, &quot;queryById&quot;, 324);
+System.out.println(sql);
+</code></pre><p><div class="reward">
+    <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="https://snowthinker.github.io/res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="https://snowthinker.github.io/res/alipay.jpeg">
+    </div></div></p>
+<div>
+
+
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-12-11 13:25:18 </span> </footer></div>
                                 
                                 </section>
                             
@@ -598,7 +651,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MyBatis 枚举支持","level":"1.5.1","depth":2,"next":{"title":"SpringBoot 配置多个application.ptoperties文件.md","level":"1.5.2","depth":2,"path":"springboot/springboot_mutiple_application.md","ref":"springboot/springboot_mutiple_application.md","articles":[]},"previous":{"title":"SpringBoot","level":"1.5","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"MyBatis 枚举支持","level":"1.5.1","depth":2,"path":"springboot/mybatis-helper.md","ref":"springboot//mybatis-helper.md","articles":[]},{"title":"SpringBoot 配置多个application.ptoperties文件.md","level":"1.5.2","depth":2,"path":"springboot/springboot_mutiple_application.md","ref":"springboot/springboot_mutiple_application.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SnowThinker资源库","gitbook":"*","description":""},"file":{"path":"springboot/mybatis-helper.md","mtime":"2019-09-17T06:50:45.529Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-17T06:50:54.204Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MyBatis 枚举支持","level":"1.5.1","depth":2,"next":{"title":"SpringBoot 配置多个application.ptoperties文件.md","level":"1.5.2","depth":2,"path":"springboot/springboot_mutiple_application.md","ref":"springboot/springboot_mutiple_application.md","articles":[]},"previous":{"title":"SpringBoot","level":"1.5","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"MyBatis 枚举支持","level":"1.5.1","depth":2,"path":"springboot/mybatis-helper.md","ref":"springboot/mybatis-helper.md","articles":[]},{"title":"SpringBoot 配置多个application.ptoperties文件.md","level":"1.5.2","depth":2,"path":"springboot/springboot_mutiple_application.md","ref":"springboot/springboot_mutiple_application.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"","gitbook":"*","description":""},"file":{"path":"springboot/mybatis-helper.md","mtime":"2019-12-11T05:25:18.803Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-11T05:25:25.718Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

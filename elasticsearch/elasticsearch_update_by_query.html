@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Elasticsearch 助手 · GitBook</title>
+        <title>Elasticsearch 条件更新 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -74,10 +74,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="elasticsearch_datetime.html" />
+    <link rel="next" href="../java/README.md" />
     
     
-    <link rel="prev" href="elasticsearch_in_query.html" />
+    <link rel="prev" href="elasticsearch_jmx_monitor.html" />
     
 
     <style>
@@ -215,7 +215,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.3" data-path="elasticsearch-helper.html">
+        <li class="chapter " data-level="1.3.3" data-path="elasticsearch-helper.html">
             
                 <a href="elasticsearch-helper.html">
             
@@ -254,7 +254,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="elasticsearch_update_by_query.html">
+        <li class="chapter active" data-level="1.3.6" data-path="elasticsearch_update_by_query.html">
             
                 <a href="elasticsearch_update_by_query.html">
             
@@ -552,7 +552,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Elasticsearch 助手</a>
+        <a href=".." >Elasticsearch 条件更新</a>
     </h1>
 </div>
 
@@ -567,70 +567,64 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="elasticsearch-helper-es&#x52A9;&#x624B;httpsgithubcomsnowthinkerelasticsearch-helper">elasticsearch-helper ES&#x52A9;&#x624B;(<a href="https://github.com/snowThinker/elasticsearch-helper" target="_blank">https://github.com/snowThinker/elasticsearch-helper</a>)</h1>
-<p><a href="https://mvnrepository.com/artifact/io.github.snowthinker/elasticsearch-helper" target="_blank"><img src="https://img.shields.io/maven-central/v/io.github.snowthinker/elasticsearch-helper.svg?label=Maven%20Central" alt="Maven Central"></a>
-<a href="https://www.apache.org/licenses/LICENSE-2.0.html" target="_blank"><img src="https://img.shields.io/badge/license-Apache%202-4EB1BA.svg" alt="License"></a></p>
-<h2 id="&#x4E3B;&#x8981;&#x529F;&#x80FD;">&#x4E3B;&#x8981;&#x529F;&#x80FD;</h2>
-<ul>
-<li><strong>ElasticsearchTemplate&#x6DF1;&#x5EA6;&#x5206;&#x9875;&#x652F;&#x6301;</strong>&#xFF1A;&#x91CD;&#x5199;ElasticsearchTemplate&#x652F;&#x6301; search after &#x6DF1;&#x5EA6;&#x5206;&#x9875;</li>
-<li><strong>&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x5206;&#x533A;&#x53CA;&#x81EA;&#x52A8;&#x5206;&#x533A;&#x6307;&#x5411;</strong>&#xFF1A;&#x53EF;&#x6309;&#x6708;&#x5206;&#x533A;&#x7D22;&#x5F15;&#xFF0C;&#x6BCF;&#x6708;&#x521B;&#x5EFA;&#x7D22;&#x5F15;&#xFF0C;&#x81EA;&#x52A8;&#x522B;&#x540D;&#x6307;&#x5411;&#x529F;&#x80FD;</li>
-<li><strong>Elasticsearch &#x8BFB;&#x5199;&#x5206;&#x79BB;</strong>&#xFF1A;&#x8BFB;&#x5199;&#x5206;&#x79BB;, &#x8BFB;&#x64CD;&#x4F5C;&#x6240;&#x6709;&#x7D22;&#x5F15;&#x5206;&#x533A;&#xFF0C;&#x5199;&#x53EA;&#x64CD;&#x4F5C;&#x5F53;&#x6708;&#x7D22;&#x5F15;</li>
-</ul>
-<h2 id="&#x5982;&#x4F55;&#x4F7F;&#x7528;">&#x5982;&#x4F55;&#x4F7F;&#x7528;</h2>
-<h3 id="1&#x3001;&#x6DFB;&#x52A0;pom&#x4F9D;&#x8D56;">1&#x3001;&#x6DFB;&#x52A0;pom&#x4F9D;&#x8D56;</h3>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.github.snowthinker<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>elasticsearch-helper<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.2-RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+                                <h1 id="elasticsearch-update-by-query-&#x6839;&#x636E;&#x6761;&#x4EF6;&#x6279;&#x91CF;&#x66F4;&#x65B0;&#x6570;&#x636E;sql-update">Elasticsearch update by query &#x6839;&#x636E;&#x6761;&#x4EF6;&#x6279;&#x91CF;&#x66F4;&#x65B0;&#x6570;&#x636E;=SQL update</h1>
+<pre><code class="lang-xml"># &#x5B9A;&#x4E49;index Item201811
+{
+    itemId,         //&#x5355;&#x54C1;&#x7F16;&#x53F7;
+    itemName,     //&#x5355;&#x54C1;&#x540D;&#x79F0;
+    warehouseId, //&#x4ED3;&#x5E93;&#x7F16;&#x53F7;
+    deleted         //&#x5220;&#x9664;&#x6807;&#x8BC6; 0&#x672A;&#x5220;&#x9664;&#xFF0C;1&#x5DF2;&#x5220;&#x9664;
+}
+
+# &#x6309;&#x4ED3;&#x5E93;&#x7F16;&#x53F7;&#x6279;&#x91CF;&#x6253;&#x5220;&#x9664;&#x6807;&#x8BB0;
+update Item201811
+set deleted=1
+where warehouseId = 1
 </code></pre>
-<h3 id="2&#x3001;&#x521D;&#x59CB;&#x5316;customelasticsearchtemplate">2&#x3001;&#x521D;&#x59CB;&#x5316;CustomElasticsearchTemplate</h3>
-<pre><code class="lang-java"><span class="hljs-meta">@Bean</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> CustomElasticsearchTemplate <span class="hljs-title">customElasticsearchTemplate</span><span class="hljs-params">(Client client)</span> </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CustomElasticsearchTemplate(client, <span class="hljs-keyword">new</span> CustomDefaultResultMapper());
+<pre><code class="lang-java">
+<span class="hljs-keyword">import</span> java.util.Collections;
+
+<span class="hljs-keyword">import</span> org.elasticsearch.client.Client;
+<span class="hljs-keyword">import</span> org.elasticsearch.index.query.QueryBuilder;
+<span class="hljs-keyword">import</span> org.elasticsearch.index.query.QueryBuilders;
+<span class="hljs-keyword">import</span> org.elasticsearch.index.reindex.BulkByScrollResponse;
+<span class="hljs-keyword">import</span> org.elasticsearch.index.reindex.UpdateByQueryAction;
+<span class="hljs-keyword">import</span> org.elasticsearch.index.reindex.UpdateByQueryRequestBuilder;
+<span class="hljs-keyword">import</span> org.elasticsearch.script.Script;
+<span class="hljs-keyword">import</span> org.elasticsearch.script.ScriptType;
+<span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;
+
+<span class="hljs-keyword">import</span> lombok.extern.slf4j.Slf4j;
+
+<span class="hljs-meta">@Slf</span>4j
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BatchUpdateTest</span> </span>{
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> Client client;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">batchUpdate</span><span class="hljs-params">()</span> </span>{
+
+        QueryBuilder queryBuilder = QueryBuilders.termQuery(<span class="hljs-string">&quot;warehouseId&quot;</span>, <span class="hljs-number">1</span>);
+
+        UpdateByQueryRequestBuilder updateByQuery = <span class="hljs-keyword">new</span> UpdateByQueryRequestBuilder(client, UpdateByQueryAction.INSTANCE);
+        updateByQuery
+            .source(<span class="hljs-string">&quot;Item201811&quot;</span>)
+            .abortOnVersionConflict(<span class="hljs-keyword">true</span>)
+            .filter(queryBuilder)
+            .script(<span class="hljs-keyword">new</span> Script(ScriptType.INLINE, <span class="hljs-string">&quot;painless&quot;</span>, <span class="hljs-string">&quot;ctx._source.deleted=1&quot;</span>, Collections.emptyMap()));
+
+        BulkByScrollResponse response = updateByQuery.get();
+
+        <span class="hljs-keyword">if</span>(response.getBatches() &gt; <span class="hljs-number">0</span>) {
+            log.info(<span class="hljs-string">&quot;Batch update success&quot;</span>);
+        } <span class="hljs-keyword">else</span> {
+            log.info(<span class="hljs-string">&quot;No record matched&quot;</span>);
+        }
+
+    }
 }
 </code></pre>
-<h3 id="3&#x3001;javabean&#x7F16;&#x5199;">3&#x3001;JavaBean&#x7F16;&#x5199;</h3>
-<pre><code class="lang-java"><span class="hljs-meta">@Data</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Item</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>{    
-    <span class="hljs-meta">@Id</span>
-    <span class="hljs-keyword">private</span> String id;
-
-    <span class="hljs-meta">@Field</span>
-    <span class="hljs-keyword">private</span> String name;
-
-    <span class="hljs-meta">@Field</span>
-    <span class="hljs-keyword">private</span> String sku;
-}
-</code></pre>
-<h3 id="4&#x3001;&#x6DF1;&#x5EA6;&#x5206;&#x9875;">4&#x3001;&#x6DF1;&#x5EA6;&#x5206;&#x9875;</h3>
-<pre><code class="lang-java"><span class="hljs-keyword">int</span> pageSize = <span class="hljs-number">10</span>;
-
-<span class="hljs-comment">// &#x6DF1;&#x5EA6;&#x5206;&#x9875;</span>
-Object[] searchAfters = <span class="hljs-keyword">new</span> Object[]{<span class="hljs-string">&quot;Iphone&quot;</span>, <span class="hljs-string">&quot;_id&quot;</span>};
-
-<span class="hljs-comment">// &#x6392;&#x5E8F;&#x5FC5;&#x9700;&#x548C;&#x6DF1;&#x5EA6;&#x5206;&#x9875;&#x987A;&#x5E8F;&#x76F8;&#x4E00;&#x81F4;</span>
-SortBuilder[] orders = <span class="hljs-keyword">new</span> SortBuilder[<span class="hljs-number">2</span>];
-orders[<span class="hljs-number">0</span>] = SortBuilders.fieldSort(<span class="hljs-string">&quot;name.keyword&quot;</span>).order(SortOrder.DESC);
-orders[<span class="hljs-number">1</span>] = SortBuilders.fieldSort(<span class="hljs-string">&quot;id.keyword&quot;</span>).order(SortOrder.DESC);
-
-<span class="hljs-comment">// &#x6761;&#x4EF6;&#x67E5;&#x8BE2;</span>
-QueryBuilder queryBuilder = QueryBuilders.termQuery(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;Iphone&quot;</span>);
-SearchQuery searchQuery = <span class="hljs-keyword">new</span> NativeSearchQueryBuilder()
-        .withIndices(<span class="hljs-string">&quot;item&quot;</span>)
-        .withQuery(queryBuilder)
-        .build();
-
-Page&lt;Item&gt; pageResult = customElasticsearchTemplate.searchAfter(searchQuery, Arrays.asList(orders), searchAfters, pageSize, Item.class);
-
-List&lt;Item&gt; dataList = pageResult.get().collect(Collectors.toList());
-
-log.info(<span class="hljs-string">&quot;Total Record: {}, page list: {}&quot;</span>, pageResult.getTotalElements(), dataList);
-</code></pre>
-<h3 id="5&#x3001;&#x6253;&#x5370;dsl&#x65E5;&#x5FD7;">5&#x3001;&#x6253;&#x5370;DSL&#x65E5;&#x5FD7;</h3>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;org.springframework.data.elasticsearch.core.QUERY&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;DEBUG&quot;</span>/&gt;</span>
-</code></pre>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-12-11 13:25:18 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-12-10 14:49:21 </span> </footer>
                                 
                                 </section>
                             
@@ -657,12 +651,12 @@ log.info(<span class="hljs-string">&quot;Total Record: {}, page list: {}&quot;</
 
             
                 
-                <a href="elasticsearch_in_query.html" class="navigation navigation-prev " aria-label="Previous page: Elasticsearch in 查询">
+                <a href="elasticsearch_jmx_monitor.html" class="navigation navigation-prev " aria-label="Previous page: Elasticsearch JMX 监控">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="elasticsearch_datetime.html" class="navigation navigation-next " aria-label="Next page: Elasticsearch LocaDateTime映射">
+                <a href="../java/README.md" class="navigation navigation-next " aria-label="Next page: JAVA">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -673,7 +667,7 @@ log.info(<span class="hljs-string">&quot;Total Record: {}, page list: {}&quot;</
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Elasticsearch 助手","level":"1.3.3","depth":2,"next":{"title":"Elasticsearch LocaDateTime映射","level":"1.3.4","depth":2,"path":"elasticsearch/elasticsearch_datetime.md","ref":"elasticsearch/elasticsearch_datetime.md","articles":[]},"previous":{"title":"Elasticsearch in 查询","level":"1.3.2","depth":2,"path":"elasticsearch/elasticsearch_in_query.md","ref":"elasticsearch/elasticsearch_in_query.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"","gitbook":"*","description":""},"file":{"path":"elasticsearch/elasticsearch-helper.md","mtime":"2019-12-11T05:25:18.392Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-11T05:25:25.718Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Elasticsearch 条件更新","level":"1.3.6","depth":2,"next":{"title":"JAVA","level":"1.4","depth":1,"path":"java/README.md","ref":"java/README.md","articles":[{"title":"Pojo工具类","level":"1.4.1","depth":2,"path":"java/pojo-helper.md","ref":"java/pojo-helper.md","articles":[]}]},"previous":{"title":"Elasticsearch JMX 监控","level":"1.3.5","depth":2,"path":"elasticsearch/elasticsearch_jmx_monitor.md","ref":"elasticsearch/elasticsearch_jmx_monitor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"","gitbook":"*","description":""},"file":{"path":"elasticsearch/elasticsearch_update_by_query.md","mtime":"2019-12-10T06:49:21.907Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-11T05:25:25.718Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
