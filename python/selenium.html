@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Elasticsearch JMX 监控 · GitBook</title>
+        <title>Selenium表单提交 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -74,10 +74,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="elasticsearch_update_by_query.html" />
+    <link rel="next" href="../others/README.md" />
     
     
-    <link rel="prev" href="elasticsearch_datetime.html" />
+    <link rel="prev" href="README.md" />
     
 
     <style>
@@ -175,7 +175,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="README.md">
+        <li class="chapter " data-level="1.3" data-path="../elasticsearch/README.md">
             
                 <span>
             
@@ -189,9 +189,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="elasticsearch_groupby_date.html">
+        <li class="chapter " data-level="1.3.1" data-path="../elasticsearch/elasticsearch_groupby_date.html">
             
-                <a href="elasticsearch_groupby_date.html">
+                <a href="../elasticsearch/elasticsearch_groupby_date.html">
             
                     
                     Elasticsearch sum count group by 按时间区间统计金额与数量
@@ -202,9 +202,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="elasticsearch_in_query.html">
+        <li class="chapter " data-level="1.3.2" data-path="../elasticsearch/elasticsearch_in_query.html">
             
-                <a href="elasticsearch_in_query.html">
+                <a href="../elasticsearch/elasticsearch_in_query.html">
             
                     
                     Elasticsearch in 查询
@@ -215,9 +215,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="elasticsearch-helper.html">
+        <li class="chapter " data-level="1.3.3" data-path="../elasticsearch/elasticsearch-helper.html">
             
-                <a href="elasticsearch-helper.html">
+                <a href="../elasticsearch/elasticsearch-helper.html">
             
                     
                     Elasticsearch 助手
@@ -228,9 +228,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="elasticsearch_datetime.html">
+        <li class="chapter " data-level="1.3.4" data-path="../elasticsearch/elasticsearch_datetime.html">
             
-                <a href="elasticsearch_datetime.html">
+                <a href="../elasticsearch/elasticsearch_datetime.html">
             
                     
                     Elasticsearch LocaDateTime映射
@@ -241,9 +241,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.5" data-path="elasticsearch_jmx_monitor.html">
+        <li class="chapter " data-level="1.3.5" data-path="../elasticsearch/elasticsearch_jmx_monitor.html">
             
-                <a href="elasticsearch_jmx_monitor.html">
+                <a href="../elasticsearch/elasticsearch_jmx_monitor.html">
             
                     
                     Elasticsearch JMX 监控
@@ -254,9 +254,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="elasticsearch_update_by_query.html">
+        <li class="chapter " data-level="1.3.6" data-path="../elasticsearch/elasticsearch_update_by_query.html">
             
-                <a href="elasticsearch_update_by_query.html">
+                <a href="../elasticsearch/elasticsearch_update_by_query.html">
             
                     
                     Elasticsearch 条件更新
@@ -458,7 +458,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="../python/README.md">
+        <li class="chapter " data-level="1.9" data-path="README.md">
             
                 <span>
             
@@ -472,9 +472,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="../python/selenium.html">
+        <li class="chapter active" data-level="1.9.1" data-path="selenium.html">
             
-                <a href="../python/selenium.html">
+                <a href="selenium.html">
             
                     
                     Selenium表单提交
@@ -584,7 +584,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Elasticsearch JMX 监控</a>
+        <a href=".." >Selenium表单提交</a>
     </h1>
 </div>
 
@@ -599,22 +599,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="elasticsearch-jmx-&#x76D1;&#x63A7;">Elasticsearch JMX &#x76D1;&#x63A7;</h3>
-<h4 id="&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;">&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h4>
-<pre><code class="lang-sh">vim <span class="hljs-variable">$ELASTICSEARCH_HOME</span>/config/jvm.options
+                                <h1 id="selenium-&#x8868;&#x5355;&#x63D0;&#x4EA4;">Selenium &#x8868;&#x5355;&#x63D0;&#x4EA4;</h1>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver
+
+options = webdriver.ChromeOptions()
+<span class="hljs-comment"># &#x6253;&#x5F00;chrome&#x5F00;&#x53D1;&#x5DE5;&#x5177;</span>
+options.add_argument(<span class="hljs-string">&apos;auto-open-devtools-for-tabs&apos;</span>)
+browser = webdriver.Chrome(chrome_options=options)
+<span class="hljs-comment"># &#x7A97;&#x53E3;&#x6700;&#x5927;&#x5316;</span>
+browser.maximize_window()
+
+<span class="hljs-comment"># &#x6253;&#x5F00;&#x7F51;&#x5740;&#x586B;&#x5199;&#x7528;&#x6237;&#x540D;&#x4E0E;&#x5BC6;&#x7801;&#x767B;&#x5F55;&#x64CD;&#x4F5C;</span>
+browser.get(<span class="hljs-string">&apos;http://www.jd.com&apos;</span>)
+browser.find_element_by_name(<span class="hljs-string">&apos;loginName&apos;</span>).send_keys(<span class="hljs-string">&apos;XXX&apos;</span>)
+browser.find_element_by_name(<span class="hljs-string">&apos;password&apos;</span>).send_keys(<span class="hljs-string">&apos;XXX&apos;</span>)
+browser.find_element_by_class_name(<span class="hljs-string">&apos;login&apos;</span>).click()
 </code></pre>
-<pre><code class="lang-s">-Dcom.sun.management.jmxremote
--Dcom.sun.management.jmxremote.port=9400
--Dcom.sun.management.jmxremote.ssl=false
--Dcom.sun.management.jmxremote.authenticate=false
-</code></pre>
-<h4 id="&#x91CD;&#x542F;">&#x91CD;&#x542F;</h4>
-<pre><code class="lang-sh"><span class="hljs-built_in">kill</span> pid 
-vim <span class="hljs-variable">$ELASTICSEARCH_HOME</span>/bin/elasticsearch <span class="hljs-_">-d</span>
-</code></pre>
-<h4 id="&#x7528;jvisualvm-&#x8FDE;&#x63A5;">&#x7528;jvisualvm &#x8FDE;&#x63A5;</h4>
-<pre><code>ip:9400
-</code></pre><footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-07-19 09:25:12 </span> </footer>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-12-25 10:29:16 </span> </footer>
                                 
                                 </section>
                             
@@ -641,12 +642,12 @@ vim <span class="hljs-variable">$ELASTICSEARCH_HOME</span>/bin/elasticsearch <sp
 
             
                 
-                <a href="elasticsearch_datetime.html" class="navigation navigation-prev " aria-label="Previous page: Elasticsearch LocaDateTime映射">
+                <a href="README.md" class="navigation navigation-prev " aria-label="Previous page: Python">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="elasticsearch_update_by_query.html" class="navigation navigation-next " aria-label="Next page: Elasticsearch 条件更新">
+                <a href="../others/README.md" class="navigation navigation-next " aria-label="Next page: 其它">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -657,7 +658,7 @@ vim <span class="hljs-variable">$ELASTICSEARCH_HOME</span>/bin/elasticsearch <sp
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Elasticsearch JMX 监控","level":"1.3.5","depth":2,"next":{"title":"Elasticsearch 条件更新","level":"1.3.6","depth":2,"path":"elasticsearch/elasticsearch_update_by_query.md","ref":"elasticsearch/elasticsearch_update_by_query.md","articles":[]},"previous":{"title":"Elasticsearch LocaDateTime映射","level":"1.3.4","depth":2,"path":"elasticsearch/elasticsearch_datetime.md","ref":"elasticsearch/elasticsearch_datetime.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"","gitbook":"*","description":""},"file":{"path":"elasticsearch/elasticsearch_jmx_monitor.md","mtime":"2019-07-19T01:25:12.169Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-25T02:32:53.815Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Selenium表单提交","level":"1.9.1","depth":2,"next":{"title":"其它","level":"1.10","depth":1,"path":"others/README.md","ref":"others/README.md","articles":[{"title":"FastDFS安装","level":"1.10.1","depth":2,"path":"others/fastdfs_install.md","ref":"others/fastdfs_install.md","articles":[]}]},"previous":{"title":"Python","level":"1.9","depth":1,"path":"python/README.md","ref":"python/README.md","articles":[{"title":"Selenium表单提交","level":"1.9.1","depth":2,"path":"python/selenium.md","ref":"python/selenium.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"","gitbook":"*","description":""},"file":{"path":"python/selenium.md","mtime":"2019-12-25T02:29:16.113Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-25T02:32:53.815Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
