@@ -22,10 +22,17 @@ GET customer_index/_mapping/customer
 ~~~
 
 #### java映射
-~~~
+~~~java
 @Field(type=FieldType.date)
 @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
 @JsonSerialize(using=LocalDateTimeSerializer.class)
 @JsonDeserialize(using=LocalDateTimeDeserializer.class)
 private LocalDateTime createTime;
+~~~
+
+#### QueryBuilder 映射
+
+~~~java
+BoolQueryBuilder queryBuilder = QueryBuilders.boolQuery();
+queryBuilder.must(QueryBuilders.rangeQuery("time").gte(beginDate).lte(endDate));
 ~~~

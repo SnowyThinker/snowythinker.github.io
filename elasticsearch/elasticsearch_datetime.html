@@ -267,6 +267,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.7" data-path="elasticsearch7_feature.html">
+            
+                <a href="elasticsearch7_feature.html">
+            
+                    
+                    Elasticsearch 7显示开启查询总条数信息
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -619,12 +632,17 @@ PUT customer_index
 #### &#x67E5;&#x770B;mapping
 GET customer_index/_mapping/customer
 </code></pre><h4 id="java&#x6620;&#x5C04;">java&#x6620;&#x5C04;</h4>
-<pre><code>@Field(type=FieldType.date)
-@JsonFormat(pattern=&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;)
-@JsonSerialize(using=LocalDateTimeSerializer.class)
-@JsonDeserialize(using=LocalDateTimeDeserializer.class)
-private LocalDateTime createTime;
-</code></pre><footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2019-07-18 10:15:08 </span> </footer>
+<pre><code class="lang-java"><span class="hljs-meta">@Field</span>(type=FieldType.date)
+<span class="hljs-meta">@JsonFormat</span>(pattern=<span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;</span>)
+<span class="hljs-meta">@JsonSerialize</span>(using=LocalDateTimeSerializer.class)
+<span class="hljs-meta">@JsonDeserialize</span>(using=LocalDateTimeDeserializer.class)
+<span class="hljs-keyword">private</span> LocalDateTime createTime;
+</code></pre>
+<h4 id="querybuilder-&#x6620;&#x5C04;">QueryBuilder &#x6620;&#x5C04;</h4>
+<pre><code class="lang-java">BoolQueryBuilder queryBuilder = QueryBuilders.boolQuery();
+queryBuilder.must(QueryBuilders.rangeQuery(<span class="hljs-string">&quot;time&quot;</span>).gte(beginDate).lte(endDate));
+</code></pre>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <div style="text-align: center; display: inline-block; "><img width="250" height="250" src="../res/wechat_pay.jpeg"> &#xA0; &#xA0;&#xA0; <img width="250" height="250" src="../res/alipay.jpeg"></div> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>&#x53D1;&#x5E03;&#x4E8E;</i> 2020-01-31 10:42:02 </span> </footer>
                                 
                                 </section>
                             
@@ -667,7 +685,7 @@ private LocalDateTime createTime;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Elasticsearch LocaDateTime映射","level":"1.3.4","depth":2,"next":{"title":"Elasticsearch JMX 监控","level":"1.3.5","depth":2,"path":"elasticsearch/elasticsearch_jmx_monitor.md","ref":"elasticsearch/elasticsearch_jmx_monitor.md","articles":[]},"previous":{"title":"Elasticsearch 助手","level":"1.3.3","depth":2,"path":"elasticsearch/elasticsearch-helper.md","ref":"elasticsearch/elasticsearch-helper.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"","gitbook":"*","description":""},"file":{"path":"elasticsearch/elasticsearch_datetime.md","mtime":"2019-07-18T02:15:08.661Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-25T02:32:53.815Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Elasticsearch LocaDateTime映射","level":"1.3.4","depth":2,"next":{"title":"Elasticsearch JMX 监控","level":"1.3.5","depth":2,"path":"elasticsearch/elasticsearch_jmx_monitor.md","ref":"elasticsearch/elasticsearch_jmx_monitor.md","articles":[]},"previous":{"title":"Elasticsearch 助手","level":"1.3.3","depth":2,"path":"elasticsearch/elasticsearch-helper.md","ref":"elasticsearch/elasticsearch-helper.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","github","github-buttons","theme-comscore","page-footer-ex","splitter","toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/snowThinker"},"page-footer-ex":{"copyright":"<div style='text-align: center; display: inline-block; '><img width='250' height='250' src='/res/wechat_pay.jpeg'/> &nbsp; &nbsp;&nbsp; <img width='250' height='250' src='/res/alipay.jpeg'/></div>","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>发布于</i>"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"github-buttons":{},"ga":{"configuration":"auto","token":"UA-138777575-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"SnowThinker","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"","gitbook":"*","description":""},"file":{"path":"elasticsearch/elasticsearch_datetime.md","mtime":"2020-01-31T02:42:02.198Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-31T02:43:52.172Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
